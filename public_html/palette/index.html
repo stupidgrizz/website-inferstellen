@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette (@aaaooouuunnn)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            overflow: auto;
+            padding: 10px;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-btn {
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+        .image-btn:hover {
+            transform: scale(1.05);
+        }
+        .fullscreen-frame {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+        .fullscreen-frame img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Desktop layout: fit in one row, split if aspect ratio < 16:9 */
+        @media (min-aspect-ratio: 16/9) {
+            .image-btn {
+                width: 128px;
+                height: 128px;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .image-btn {
+                width: 128px;
+                height: 128px;
+            }
+        }
+
+        /* Mobile layout: slightly smaller buttons, vertical scroll */
+        @media (max-width: 768px) {
+            .gallery-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 0;
+            }
+            .image-btn {
+                width: 320px;
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <img class="image-btn" src="000000.jpg" onclick="openImage('000000.jpg')">
+        <img class="image-btn" src="101010.jpg" onclick="openImage('101010.jpg')">
+        <img class="image-btn" src="202020.jpg" onclick="openImage('202020.jpg')">
+        <img class="image-btn" src="252525.jpg" onclick="openImage('252525.jpg')">
+        <img class="image-btn" src="303030.jpg" onclick="openImage('303030.jpg')">
+        <img class="image-btn" src="333333.jpg" onclick="openImage('333333.jpg')">
+        <img class="image-btn" src="404040.jpg" onclick="openImage('404040.jpg')">
+        <img class="image-btn" src="808080.jpg" onclick="openImage('808080.jpg')">
+        <img class="image-btn" src="FFFFFF.jpg" onclick="openImage('FFFFFF.jpg')">
+        <img class="image-btn" src="FF3535.jpg" onclick="openImage('FF3535.jpg')">
+        <img class="image-btn" src="001F3F.jpg" onclick="openImage('001F3F.jpg')">
+        <img class="image-btn" src="FFA500.jpg" onclick="openImage('FFA500.jpg')">
+        <img class="image-btn" src="895835.jpg" onclick="openImage('895835.jpg')">
+    </div>
+
+    <div class="fullscreen-frame" id="fullscreenFrame" onclick="closeImage()">
+        <img id="fullscreenImage" src="" alt="">
+    </div>
+
+    <script>
+        function openImage(src) {
+            const frame = document.getElementById('fullscreenFrame');
+            const image = document.getElementById('fullscreenImage');
+            image.src = src;
+            frame.style.display = 'flex';
+        }
+
+        function closeImage() {
+            const frame = document.getElementById('fullscreenFrame');
+            frame.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
