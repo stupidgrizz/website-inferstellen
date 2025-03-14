@@ -21,7 +21,8 @@
             min-height: 100vh;
             background: #202020;
             font-family: 'DM Sans', sans-serif;
-            padding: 20px;
+            padding: 96px 8 96px 8; /* top right bottom left */
+            /*padding: 96px 8;*/
             color: #BFBFBF;
         }
 
@@ -49,6 +50,8 @@
         }
 
         .container {
+            padding-top: 96px;   /* Adjust based on header height */
+            padding-bottom: 96px; /* Adjust based on footer height */
             display: flex;
             flex-direction: column;
             align-items: center;
