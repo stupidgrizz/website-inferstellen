@@ -4,15 +4,15 @@
 }
 
 body {
-  --size: min(40vw, 40vh);
-  --width: calc(var(--size) / 40);
+  --size: min(45vw, 45vh);
+  --width: calc(var(--size) / 45);
   --dist: calc(var(--width) * 9.8);
   --count: 64;
   --bg: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea355389655.59822ff824b72.gif");
   margin: 0;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(-45deg, #111, #222);
+  background-image: linear-gradient(-45deg, #000000, #000000);
   overflow: hidden;
   display: flex;
   align-items: center;
