@@ -1,235 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+        <link rel="icon" type="image/png" href="icon.png">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>INFERSTELLEN | Contact</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #252525;
+                font-family: 'DM Sans', sans-serif;
+                color: #BFBFBF;
+                padding: 96px 8px;
+            }
+            .top-header {
+                width: 100%;
+                background: #151515;
+                padding: 24px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 100;
+            }
+            .home-icon {
+                color: #BFBFBF;
+                font-size: 1.5em;
+                text-decoration: none;
+            }
+            .home-icon:hover {
+                color: #ffffff;
+            }
+            .message-button-container {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .about-button-container {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .message-button, .about-button {
+                width: 40px;
+                height: 40px;
+                background: #252525;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.2em;
+                color: #FFFFFF;
+            }
+            .message-button:hover, .about-button:hover {
+                background: #000000;
+                color: #FFFFFF;
+            }
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+                background: #252525;
+                padding: 30px;
+                border-radius: 16px;
+                margin-top: 120px;
+                margin-bottom: 120px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            .row {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .row .field {
+                flex: 1;
+                min-width: 200px;
+            }
+            input, textarea {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px;
+                border: none;
+                border-radius: 8px;
+                background-color: #ffffff;
+                color: #151515;
+                font-size: 16px;
+            }
+            input::placeholder, textarea::placeholder {
+                color: #505050;
+            }
+            button {
+                background-color: #151515;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:hover {
+                background-color: #ffffff;
+                color: black;
+            }
+            .footer {
+                width: 100%;
+                background: #151515;
+                padding: 24px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+            }
+            .footer a {
+                color: #BFBFBF;
+                font-size: 1.5em;
+                text-decoration: none;
+            }
+            .footer a:hover {
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-header">
+            <a href="https://inferstellen.com" class="home-icon" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
 
-  <link rel="icon" type="image/png" href="icon.png">
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact • INFERSTELLEN</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #252525;
-      font-family: 'DM Sans', sans-serif;
-      color: #BFBFBF;
-      padding: 96px 8px;
-    }
-    .top-header {
-      width: 100%;
-      background: #151515;
-      padding: 24px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-    }
-    .home-icon {
-      color: #BFBFBF;
-      font-size: 1.5em;
-      text-decoration: none;
-    }
-    .home-icon:hover {
-      color: #ffffff;
-    }
-    .audio-button-container {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .message-button-container {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .audio-button, .message-button {
-      width: 40px;
-      height: 40px;
-      background: #252525;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2em;
-      color: #FFFFFF;
-    }
-    .audio-button:hover, .message-button:hover {
-      background: #000000;
-      color: #FFFFFF;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #252525;
-      padding: 30px;
-      border-radius: 16px;
-      /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
-      margin-top: 120px;
-      margin-bottom: 120px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    .row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .row .field {
-      flex: 1;
-      min-width: 200px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: none;
-      /*border: 2px solid #404040;*/
-      border-radius: 8px;
-      background-color: #ffffff;
-      color: #151515;
-      font-size: 16px;
-    }
-    input::placeholder, textarea::placeholder {
-      color: #505050;
-    }
-    button {
-      background-color: #151515;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #ffffff;
-      color: black;
-    }
-    .footer {
-      width: 100%;
-      background: #151515;
-      padding: 24px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-    }
-    .footer a {
-      color: #BFBFBF;
-      font-size: 1.5em;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      color: #ffffff;
-    }
-  </style>
-</head>
-<body>
-  <div class="top-header">
-    <a href="https://inferstellen.com" class="home-icon" title="Home">
-      <i class="fas fa-home"></i>
-    </a>
+            <div class="message-button-container">
+                <a href="https://inferstellen.com/about">
+                    <button class="about-button" title="About">
+                        <i class="fas fa-file-alt"></i>
+                    </button>
+                </a>
+            </div>
 
-    <div class="message-button-container">
-      <a href="https://inferstellen.com/about">
-        <button class="message-button" title="About">
-          <i class="fas fa-file-alt"></i>  
-        </button>
-      </a>
-    </div>
+            <div class="about-button-container">
+                <a href="https://inferstellen.com/contact">
+                    <button class="message-button" title="Message">
+                        <i class="fas fa-paper-plane"></i>  
+                    </button>
+                </a>
+            </div>
+        </div>
 
-    <div class="audio-button-container">
-      <button id="audioToggle" class="audio-button" title="Toggle Sound">
-        <i class="fas fa-bell"></i>
-      </button>
-    </div>
-  </div>
+        <div class="container">
+            <form action="https://formsubmit.co/email@inferstellen.com" method="POST">
+                <div class="row">
+                    <div class="field">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="field">
+                        <input type="text" id="company" name="company" placeholder="Company Name">
+                    </div>
+                </div>
 
-  <audio id="backgroundAudio" loop>
-    <source src="sound.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+                <div class="row">
+                    <div class="field">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                    </div>
+                </div>
 
-<div class="container">
-  <form action="https://formsubmit.co/email@inferstellen.com" method="POST">
-    <div class="row">
-      <div class="field">
-        <input type="text" id="name" name="name" placeholder="Name" required>
-      </div>
-      <div class="field">
-        <input type="text" id="company" name="company" placeholder="Company Name">
-      </div>
-    </div>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-    <div class="row">
-      <div class="field">
-        <input type="email" id="email" name="email" placeholder="Email Address" required>
-      </div>
-      <div class="field">
-        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
-      </div>
-    </div>
+                <textarea id="message" name="message" rows="10" placeholder="Message / Content" required style="font-family: Arial, sans-serif;"></textarea>
 
-    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                <input type="hidden" name="_captcha" value="false">
 
-    <!-- Fix: override default monospace font -->
-    <textarea id="message" name="message" rows="10" placeholder="Message / Content" required 
-              style="font-family: Arial, sans-serif;"></textarea>
+                <button type="submit">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
 
-    <input type="hidden" name="_captcha" value="false">
-
-    <!-- Fix: close <button> tag -->
-    <button type="submit">
-      <i class="fas fa-arrow-right"></i>
-    </button>
-  </form>
-</div>
-
-
-  <div class="footer">
-    <a href="mailto:email@inferstellen.com" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/923145776423" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://linkedin.com/company/inferstellen" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://linktr.ee/inferstellen" title="Linktree"><i class="fas fa-globe"></i></a>
-    <a href="https://instagram.com/inferstellen" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/@inferstellen" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitter.com/inferstellen" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const audio = document.getElementById("backgroundAudio");
-      const button = document.getElementById("audioToggle");
-      const icon = button.querySelector("i");
-      button.addEventListener("click", function () {
-        if (audio.paused) {
-          audio.play();
-          icon.classList.remove("fa-bell");
-          icon.classList.add("fa-bell-slash");
-        } else {
-          audio.pause();
-          icon.classList.remove("fa-bell-slash");
-          icon.classList.add("fa-bell");
-        }
-      });
-    });
-  </script>
-</body>
+        <div class="footer">
+            <a href="mailto:email@inferstellen.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/923145776423" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://linkedin.com/company/inferstellen" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://linktr.ee/inferstellen" title="Linktree"><i class="fas fa-globe"></i></a>
+            <a href="https://instagram.com/inferstellen" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@inferstellen" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/inferstellen" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+        </div>
+    </body>
 </html>

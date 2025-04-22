@@ -1,27 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <link rel="icon" type="image/png" href="icon.png">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palette • INFERSTELLEN</title>
+    <title>INFERSTELLEN | Palette</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #252525;
             overflow: auto;
-            padding: 10px;
+            padding: 96px 10px 96px 10px; /* Top and bottom padding to avoid header/footer */
+            font-family: 'DM Sans', sans-serif;
+            color: #BFBFBF;
         }
+
+        .top-header {
+            width: 100%;
+            background: #151515;
+            padding: 24px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .home-icon {
+            color: #BFBFBF;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .home-icon:hover {
+            color: #ffffff;
+        }
+
+        .message-button-container {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .about-button-container {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .message-button, .about-button {
+            width: 40px;
+            height: 40px;
+            background: #252525;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color: #FFFFFF;
+        }
+
+        .message-button:hover, .about-button:hover {
+            background: #000000;
+            color: #FFFFFF;
+        }
+
+        .footer {
+            width: 100%;
+            background: #151515;
+            padding: 24px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer a {
+            color: #BFBFBF;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
         .gallery-container {
             display: flex;
             flex-wrap: wrap;
@@ -29,14 +111,28 @@
             justify-content: center;
             align-items: center;
         }
+
+        /* Wrapper for each image to apply the border outside */
+        .image-btn-wrapper {
+            display: inline-block;
+            padding: 2px; /* Gap between the image button and the border */
+            border: 2px solid #FFFFFF; /* Adds the 2px white border around the wrapper */
+            border-radius: 12px; /* Optional: makes the border rounded */
+        }
+
         .image-btn {
-            border-radius: 10px;
+            border-radius: 8px; /* Slightly smaller radius to fit inside the wrapper border */
             cursor: pointer;
             transition: transform 0.25s ease;
+            display: block; /* Ensures the image is a block element, eliminating extra space */
+            width: 100%; /* Ensures the image fills the wrapper properly */
+            height: 100%; /* Keeps the image height equal to the wrapper's height */
         }
+
         .image-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
+
         .fullscreen-frame {
             display: none;
             position: fixed;
@@ -49,14 +145,31 @@
             justify-content: center;
             align-items: center;
         }
-        .fullscreen-frame img {
+
+        .fullscreen-content {
+            margin-top: 96px;   /* Header height */
+            margin-bottom: 96px; /* Footer height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100% - 192px);
+        }
+
+        .fullscreen-content img {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 100%;
             border-radius: 16px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
-        
-        /* Desktop layout: fit in one row, split if aspect ratio < 16:9 */
+
+        .fullscreen-frame img {
+            max-width: 90%;
+            max-height: calc(100vh - 192px); /* subtracting header + footer height */
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
         @media (min-aspect-ratio: 16/9) {
             .image-btn {
                 width: 128px;
@@ -71,13 +184,13 @@
             }
         }
 
-        /* Mobile layout: slightly smaller buttons, vertical scroll */
         @media (max-width: 768px) {
             .gallery-container {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 16px 0;
             }
+
             .image-btn {
                 width: 320px;
                 height: 320px;
@@ -86,25 +199,96 @@
     </style>
 </head>
 <body>
-    <div class="gallery-container">
-        <img class="image-btn" src="000000.jpg" onclick="openImage('000000.jpg')">
-        <img class="image-btn" src="101010.jpg" onclick="openImage('101010.jpg')">
-        <img class="image-btn" src="202020.jpg" onclick="openImage('202020.jpg')">
-        <img class="image-btn" src="252525.jpg" onclick="openImage('252525.jpg')">
-        <img class="image-btn" src="303030.jpg" onclick="openImage('303030.jpg')">
-        <img class="image-btn" src="333333.jpg" onclick="openImage('333333.jpg')">
-        <img class="image-btn" src="404040.jpg" onclick="openImage('404040.jpg')">
-        <img class="image-btn" src="808080.jpg" onclick="openImage('808080.jpg')">
-        <img class="image-btn" src="FFFFFF.jpg" onclick="openImage('FFFFFF.jpg')">
-        <img class="image-btn" src="FF3535.jpg" onclick="openImage('FF3535.jpg')">
-        <img class="image-btn" src="001F3F.jpg" onclick="openImage('001F3F.jpg')">
-        <img class="image-btn" src="FFA500.jpg" onclick="openImage('FFA500.jpg')">
-        <img class="image-btn" src="895835.jpg" onclick="openImage('895835.jpg')">
+
+    <!-- Top Header -->
+    <div class="top-header">
+        <a href="https://inferstellen.com" class="home-icon" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <div class="message-button-container">
+            <a href="https://inferstellen.com/about">
+                <button class="about-button" title="About">
+                    <i class="fas fa-file-alt"></i> 
+                </button>
+            </a>
+        </div>
+
+        <div class="about-button-container">
+            <a href="https://inferstellen.com/contact">
+                <button class="message-button" title="Message">
+                    <i class="fas fa-paper-plane"></i>  
+                </button>
+            </a>
+        </div>
     </div>
 
-    <div class="fullscreen-frame" id="fullscreenFrame" onclick="closeImage()">
-        <img id="fullscreenImage" src="" alt="">
+    <!-- Image Gallery -->
+    <div class="gallery-container">
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="000000.jpg" onclick="openImage('000000.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="101010.jpg" onclick="openImage('101010.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="202020.jpg" onclick="openImage('202020.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="252525.jpg" onclick="openImage('252525.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="303030.jpg" onclick="openImage('303030.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="333333.jpg" onclick="openImage('333333.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="404040.jpg" onclick="openImage('404040.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="808080.jpg" onclick="openImage('808080.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="FFFFFF.jpg" onclick="openImage('FFFFFF.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="FF3535.jpg" onclick="openImage('FF3535.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="001F3F.jpg" onclick="openImage('001F3F.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="FFA500.jpg" onclick="openImage('FFA500.jpg')">
+        </div>
+        <div class="image-btn-wrapper">
+            <img class="image-btn" src="895835.jpg" onclick="openImage('895835.jpg')">
+        </div>
     </div>
+
+    <!-- Fullscreen Frame -->
+    <div class="fullscreen-frame" id="fullscreenFrame" onclick="closeImage()">
+        <div class="fullscreen-content">
+            <img id="fullscreenImage" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="mailto:email@inferstellen.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/923145776423" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://linkedin.com/in/inferstellen" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://linktr.ee/inferstellen" title="Linktree"><i class="fas fa-globe"></i></a>
+        <a href="https://instagram.com/inferstellen" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@inferstellen" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://twitter.com/inferstellen" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <!-- Audio & Image Scripts -->
+    <audio id="backgroundAudio" loop>
+        <source src="sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         function openImage(src) {
@@ -115,9 +299,25 @@
         }
 
         function closeImage() {
-            const frame = document.getElementById('fullscreenFrame');
-            frame.style.display = 'none';
+            document.getElementById('fullscreenFrame').style.display = 'none';
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("backgroundAudio");
+            const button = document.getElementById("audioToggle");
+            const icon = button.querySelector("i");
+            button.addEventListener("click", function () {
+                if (audio.paused) {
+                    audio.play();
+                    icon.classList.remove("fa-bell");
+                    icon.classList.add("fa-bell-slash");
+                } else {
+                    audio.pause();
+                    icon.classList.remove("fa-bell-slash");
+                    icon.classList.add("fa-bell");
+                }
+            });
+        });
     </script>
 </body>
 </html>
