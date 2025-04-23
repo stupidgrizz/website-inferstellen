@@ -110,10 +110,10 @@
         /* Background image */
         .background-image {
             position: absolute;
-            top: 96px;  /* Space for header */
+            top: 72px;  /* Space for header */
             left: 0;
             width: 100%;
-            bottom: 96px; /* Space for footer */
+            bottom: 72px; /* Space for footer */
             background-size: cover; /* Cover the area */
             background-position: center; /* Center the image */
             z-index: -1;
@@ -123,7 +123,7 @@
         @media (min-width: 768px) {
             .background-image {
                 background-image: url('desktop.jpg');
-                height: calc(100vh - 192px); /* Full height minus header and footer */
+                height: calc(100vh - 144px); /* Full height minus header and footer */
             }
         }
 
@@ -131,7 +131,7 @@
         @media (max-width: 767px) {
             .background-image {
                 background-image: url('mobile.jpg');
-                height: calc(100vh - 192px); /* Full height minus header and footer */
+                height: calc(100vh - 144px); /* Full height minus header and footer */
             }
         }
 
