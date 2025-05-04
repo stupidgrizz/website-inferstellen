@@ -13,14 +13,14 @@
                 box-sizing: border-box;
             }
             body {
-                background-color: #252525;
+                background-color: #000000;
                 font-family: 'DM Sans', sans-serif;
                 color: #BFBFBF;
                 padding: 96px 8px;
             }
             .top-header {
                 width: 100%;
-                background: #151515;
+                background: #000000;
                 padding: 24px 0;
                 display: flex;
                 justify-content: center;
@@ -53,7 +53,7 @@
             .message-button, .about-button {
                 width: 40px;
                 height: 40px;
-                background: #252525;
+                background: #000000;
                 border: none;
                 border-radius: 8px;
                 cursor: pointer;
@@ -70,7 +70,7 @@
             .container {
                 max-width: 720px;
                 margin: 0 auto;
-                background: #252525;
+                background: #000000;
                 padding: 30px;
                 border-radius: 16px;
                 margin-top: 120px;
@@ -103,7 +103,7 @@
                 color: #505050;
             }
             button {
-                background-color: #151515;
+                background-color: #252525;
                 color: white;
                 padding: 12px 20px;
                 border: none;
@@ -117,7 +117,7 @@
             }
             .footer {
                 width: 100%;
-                background: #151515;
+                background: #000000;
                 padding: 24px 0;
                 display: flex;
                 justify-content: center;
@@ -142,26 +142,16 @@
             <a href="https://inferstellen.com" class="home-icon" title="Home">
                 <i class="fas fa-home"></i>
             </a>
-
-            <div class="message-button-container">
-                <a href="https://inferstellen.com/about">
-                    <button class="about-button" title="About">
-                        <i class="fas fa-file-alt"></i>
-                    </button>
-                </a>
-            </div>
-
-            <div class="about-button-container">
-                <a href="https://inferstellen.com/contact">
-                    <button class="message-button" title="Message">
-                        <i class="fas fa-paper-plane"></i>  
-                    </button>
-                </a>
-            </div>
         </div>
 
         <div class="container">
             <form action="https://formsubmit.co/email@inferstellen.com" method="POST">
+                <!-- Honeypot field (invisible to users but visible to bots) -->
+                <input type="text" name="_honey" style="display:none">
+
+                <!-- Disable reCAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="row">
                     <div class="field">
                         <input type="text" id="name" name="name" placeholder="Name" required>
@@ -184,8 +174,6 @@
 
                 <textarea id="message" name="message" rows="10" placeholder="Message / Content" required style="font-family: Arial, sans-serif;"></textarea>
 
-                <input type="hidden" name="_captcha" value="false">
-
                 <button type="submit">
                     <i class="fas fa-arrow-right"></i>
                 </button>
@@ -194,7 +182,7 @@
 
         <div class="footer">
             <a href="mailto:email@inferstellen.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/923145776423" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://linkedin.com/company/inferstellen" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://linktr.ee/inferstellen" title="Linktree"><i class="fas fa-globe"></i></a>
             <a href="https://instagram.com/inferstellen" title="Instagram"><i class="fab fa-instagram"></i></a>

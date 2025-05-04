@@ -18,16 +18,17 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #252525;
+            background-color: #000000;
             overflow: auto;
             padding: 96px 10px 96px 10px; /* Top and bottom padding to avoid header/footer */
             font-family: 'DM Sans', sans-serif;
             color: #BFBFBF;
         }
 
+        /* Top Header */
         .top-header {
             width: 100%;
-            background: #151515;
+            background: #000000;
             padding: 24px 0;
             display: flex;
             justify-content: center;
@@ -35,7 +36,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 100;
+            z-index: 1; /* Set z-index lower to go beneath fullscreen image */
         }
 
         .home-icon {
@@ -81,9 +82,10 @@
             color: #FFFFFF;
         }
 
+        /* Footer */
         .footer {
             width: 100%;
-            background: #151515;
+            background: #000000;
             padding: 24px 0;
             display: flex;
             justify-content: center;
@@ -92,6 +94,7 @@
             position: fixed;
             bottom: 0;
             left: 0;
+            z-index: 1; /* Set z-index lower to go beneath fullscreen image */
         }
 
         .footer a {
@@ -141,7 +144,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.75);
-            z-index: 10;
+            z-index: 1000; /* Higher z-index to overlay the image on top of header/footer */
             justify-content: center;
             align-items: center;
         }
@@ -154,13 +157,6 @@
             align-items: center;
             width: 100%;
             height: calc(100% - 192px);
-        }
-
-        .fullscreen-content img {
-            max-width: 90%;
-            max-height: 100%;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .fullscreen-frame img {
@@ -205,22 +201,6 @@
         <a href="https://inferstellen.com" class="home-icon" title="Home">
             <i class="fas fa-home"></i>
         </a>
-
-        <div class="message-button-container">
-            <a href="https://inferstellen.com/about">
-                <button class="about-button" title="About">
-                    <i class="fas fa-file-alt"></i> 
-                </button>
-            </a>
-        </div>
-
-        <div class="about-button-container">
-            <a href="https://inferstellen.com/contact">
-                <button class="message-button" title="Message">
-                    <i class="fas fa-paper-plane"></i>  
-                </button>
-            </a>
-        </div>
     </div>
 
     <!-- Image Gallery -->
@@ -276,7 +256,7 @@
     <!-- Footer -->
     <div class="footer">
         <a href="mailto:email@inferstellen.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/923145776423" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://linkedin.com/company/inferstellen" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://linktr.ee/inferstellen" title="Linktree"><i class="fas fa-globe"></i></a>
         <a href="https://instagram.com/inferstellen" title="Instagram"><i class="fab fa-instagram"></i></a>
