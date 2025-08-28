@@ -154,7 +154,7 @@ export default function ServicesPage() {
         {/* Services Grid */}
         <section className="w-full py-20">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <div className="grid gap-12 lg:gap-16">
+            <div className="grid gap-8 lg:gap-16">
               {services.map((service, i) => {
                 const serviceId = service.title
                   .toLowerCase()
@@ -176,7 +176,9 @@ export default function ServicesPage() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
                     <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur">
-                      <div className={`grid lg:grid-cols-2 gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
+                      <div
+                        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                      >
                         <div
                           className={`aspect-video lg:aspect-square overflow-hidden ${i % 2 === 1 ? "lg:order-2" : ""}`}
                         >
@@ -188,7 +190,7 @@ export default function ServicesPage() {
                             className="w-full h-full object-cover"
                           />
                         </div>
-                        <div className={`p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                        <div className={`p-6 lg:p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                           <CardHeader className="p-0 mb-6">
                             <CardTitle className="text-3xl font-bold mb-4">{service.title}</CardTitle>
                             <p className="text-muted-foreground text-lg">{service.description}</p>
