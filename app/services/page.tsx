@@ -214,7 +214,7 @@ export default function ServicesPage() {
                                 ))}
                               </div>
                             </div>
-                            <div className="flex gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4">
                               <Link href="/contact">
                                 <Button size="lg" className="rounded-full">
                                   <Calendar className="mr-2 size-4" />
