@@ -72,7 +72,7 @@ export default function AboutPage() {
       <header
         className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
       >
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between mx-auto max-w-7xl">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <Image
               src="/inferstellen-logo.png"
