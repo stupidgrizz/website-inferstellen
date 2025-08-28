@@ -225,7 +225,7 @@ export default function LandingPage() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
           >
-            <div className="container py-4 flex flex-col gap-4">
+            <div className="container mx-auto max-w-7xl px-4 md:px-6 py-4 flex flex-col gap-4">
               <Link href="/projects" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                 Projects
               </Link>
@@ -350,14 +350,14 @@ export default function LandingPage() {
                 </Button>
               </div>
 
-              <div className="overflow-hidden px-16">
+              <div className="overflow-hidden px-4 sm:px-16">
                 <motion.div
-                  className="flex"
+                  className="flex gap-4 sm:gap-0"
                   animate={{ x: -currentProject * 100 + "%" }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   {featuredProjects.map((project, i) => (
-                    <div key={i} className="min-w-full flex justify-center">
+                    <div key={i} className="min-w-full flex justify-center px-2 sm:px-0">
                       <Card className="w-full max-w-2xl overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
                         <Link href={`/projects/${project.slug}`}>
                           <div className="aspect-video overflow-hidden relative cursor-pointer">
