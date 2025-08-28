@@ -47,11 +47,11 @@ export default function ContactPage() {
   ]
 
   const services = [
-    "Digital Twins",
-    "VR Experiences",
     "3D Visualization",
-    "Interactive Media",
-    "Real-time Production",
+    "Games & Media",
+    "VR Experiences",
+    "Automotive & Mechanical Design",
+    "Virtual Production",
     "Animation & Movies",
     "Consultation",
     "Other",
@@ -62,9 +62,7 @@ export default function ContactPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container px-4 md:px-6 relative">
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
+          <div className="container px-4 md:px-6 relative mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,7 +89,7 @@ export default function ContactPage() {
 
         {/* Contact Information */}
         <section className="w-full py-20">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-16">
               {contactInfo.map((info, i) => (
                 <motion.div
@@ -119,7 +117,7 @@ export default function ContactPage() {
 
         {/* Contact Form */}
         <section className="w-full py-20 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -141,6 +139,7 @@ export default function ContactPage() {
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_next" value={redirectUrl} />
 
+                    {/* ... existing form content ... */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -295,7 +294,7 @@ export default function ContactPage() {
 
         {/* FAQ Preview */}
         <section className="w-full py-20">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -310,12 +309,12 @@ export default function ContactPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/faq">
-                  <Button size="lg" variant="outline" className="rounded-full h-12 px-8 bg-transparent">
+                  <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
                     View FAQ
                   </Button>
                 </Link>
                 <Link href="/services">
-                  <Button size="lg" className="rounded-full h-12 px-8">
+                  <Button size="lg" className="rounded-full px-8">
                     Explore Services
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
