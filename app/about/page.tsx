@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronRight, Menu, X, Moon, Sun, ArrowRight, ChevronDown } from "lucide-react"
+import { ChevronRight, Menu, X, ArrowRight, ChevronDown, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "next-themes"
+import { useTheme } from "@/hooks/useTheme"
 
 export default function AboutPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -35,10 +35,15 @@ export default function AboutPage() {
 
   const services = [
     {
-      title: "Digital Twins",
+      title: "3D Visualization",
       description:
-        "Real-time 3D representations of physical systems with live data integration and interactive controls.",
-      link: "/services#digital-twins",
+        "Photorealistic 3D rendering and visualization for architecture, products, and industrial applications.",
+      link: "/services#3d-visualization",
+    },
+    {
+      title: "Games & Media",
+      description: "Interactive gaming experiences and digital media production with cutting-edge technology.",
+      link: "/services#games-media",
     },
     {
       title: "VR Experiences",
@@ -46,20 +51,14 @@ export default function AboutPage() {
       link: "/services#vr-experiences",
     },
     {
-      title: "3D Visualization",
-      description:
-        "Photorealistic 3D rendering and visualization for architecture, products, and industrial applications.",
-      link: "/services#3d-visualization",
+      title: "Automotive & Mechanical Design",
+      description: "Advanced automotive and mechanical systems visualization with real-time rendering capabilities.",
+      link: "/services#automotive-mechanical",
     },
     {
-      title: "Interactive Media",
-      description: "Engaging interactive experiences combining 3D graphics, animations, and user interfaces.",
-      link: "/services#interactive-media",
-    },
-    {
-      title: "Real-time Production",
+      title: "Virtual Production",
       description: "Live production workflows using Unreal Engine for broadcasts, events, and virtual productions.",
-      link: "/services#real-time-production",
+      link: "/services#virtual-production",
     },
     {
       title: "Animation & Movies",
@@ -101,20 +100,20 @@ export default function AboutPage() {
               </button>
               {servicesDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
-                  <Link href="/services#digital-twins" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Digital Twins
+                  <Link href="/services#3d-visualization" className="block px-4 py-2 text-sm hover:bg-muted">
+                    3D Visualization
+                  </Link>
+                  <Link href="/services#games-media" className="block px-4 py-2 text-sm hover:bg-muted">
+                    Games & Media
                   </Link>
                   <Link href="/services#vr-experiences" className="block px-4 py-2 text-sm hover:bg-muted">
                     VR Experiences
                   </Link>
-                  <Link href="/services#3d-visualization" className="block px-4 py-2 text-sm hover:bg-muted">
-                    3D Visualization
+                  <Link href="/services#automotive-mechanical" className="block px-4 py-2 text-sm hover:bg-muted">
+                    Automotive & Mechanical Design
                   </Link>
-                  <Link href="/services#interactive-media" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Interactive Media
-                  </Link>
-                  <Link href="/services#real-time-production" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Real-time Production
+                  <Link href="/services#virtual-production" className="block px-4 py-2 text-sm hover:bg-muted">
+                    Virtual Production
                   </Link>
                   <Link href="/services#animation-movies" className="block px-4 py-2 text-sm hover:bg-muted">
                     Animation & Movies
@@ -136,10 +135,6 @@ export default function AboutPage() {
             </Link>
           </nav>
           <div className="hidden md:flex gap-4 items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
             <Link href="/">
               <Button variant="outline" className="rounded-full bg-transparent">
                 Back to Home
@@ -197,9 +192,7 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container px-4 md:px-6 relative">
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
+          <div className="container px-4 md:px-6 relative mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -218,7 +211,7 @@ export default function AboutPage() {
 
         {/* About Content */}
         <section className="w-full py-20 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <div className="max-w-4xl mx-auto space-y-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -329,7 +322,7 @@ export default function AboutPage() {
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
 
-          <div className="container px-4 md:px-6 relative">
+          <div className="container px-4 md:px-6 relative mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -346,7 +339,7 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="rounded-full h-12 px-8 text-base">
+                  <Button size="lg" variant="secondary" className="rounded-full px-8 text-base">
                     Book an Appointment
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
@@ -355,7 +348,7 @@ export default function AboutPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
+                    className="rounded-full px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
                   >
                     Explore
                   </Button>
@@ -367,7 +360,7 @@ export default function AboutPage() {
       </main>
 
       <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
-        <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
+        <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16 mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-2 font-bold">
@@ -390,10 +383,18 @@ export default function AboutPage() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="/services#digital-twins"
+                    href="/services#3d-visualization"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Digital Twins
+                    3D Visualization
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services#games-media"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Games & Media
                   </Link>
                 </li>
                 <li>
@@ -406,26 +407,18 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#3d-visualization"
+                    href="/services#automotive-mechanical"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    3D Visualization
+                    Automotive & Mechanical Design
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services#interactive-media"
+                    href="/services#virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Interactive Media
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services#real-time-production"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Real-time Production
+                    Virtual Production
                   </Link>
                 </li>
                 <li>

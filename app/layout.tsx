@@ -12,11 +12,9 @@ export const metadata: Metadata = {
     "Interactive 3D experiences, VR solutions, digital twins, and immersive productions using Unreal Engine, Unity, and Blender.",
   generator: "v0.app",
   icons: {
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/inferstellen-logo.jpg-wsuhc6lixFIyApSRVr1DwpcTPclEBN.jpeg",
-    shortcut:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/inferstellen-logo.jpg-wsuhc6lixFIyApSRVr1DwpcTPclEBN.jpeg",
-    apple:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/inferstellen-logo.jpg-wsuhc6lixFIyApSRVr1DwpcTPclEBN.jpeg",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 }
 
@@ -28,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
