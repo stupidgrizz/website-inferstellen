@@ -24,39 +24,9 @@ export default function ServicesPage() {
 
   const services = [
     {
-      title: "Digital Twins",
-      description:
-        "Create real-time digital replicas of physical systems with live data integration, predictive analytics, and interactive visualization.",
-      features: [
-        "Real-time data synchronization",
-        "Predictive maintenance algorithms",
-        "Interactive 3D visualization",
-        "IoT sensor integration",
-        "Performance optimization",
-        "Custom dashboard development",
-      ],
-      image: "/futuristic-port-with-cranes-and-digital-interface.png",
-      technologies: ["Unreal Engine", "Unity", "IoT", "AI/ML", "Real-time Analytics"],
-    },
-    {
-      title: "VR Experiences",
-      description:
-        "Immersive virtual reality applications for training, visualization, entertainment, and interactive presentations.",
-      features: [
-        "Custom VR application development",
-        "Multi-platform compatibility",
-        "Haptic feedback integration",
-        "Collaborative virtual environments",
-        "Training simulation modules",
-        "Performance analytics",
-      ],
-      image: "/futuristic-city-skyline-in-vr.png",
-      technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
-    },
-    {
       title: "3D Visualization",
       description:
-        "High-quality 3D rendering and visualization solutions for architecture, products, and complex data representation.",
+        "High-quality 3D rendering and visualization solutions for architecture, products, and complex data representation with photorealistic results.",
       features: [
         "Photorealistic rendering",
         "Real-time ray tracing",
@@ -67,26 +37,60 @@ export default function ServicesPage() {
       ],
       image: "/3d-car-visualization-with-rtx-lighting.png",
       technologies: ["Blender", "3ds Max", "RTX", "Unreal Engine", "WebGL"],
+      category: "3d-visualization",
     },
     {
-      title: "Interactive Media",
+      title: "Games & Media",
       description:
-        "Engaging interactive experiences for exhibitions, presentations, marketing campaigns, and educational content.",
+        "Interactive gaming experiences and digital media production with cutting-edge graphics, physics, and immersive storytelling.",
       features: [
-        "Touch-screen interfaces",
-        "Gesture recognition",
-        "Multi-user interactions",
-        "Content management systems",
-        "Analytics and reporting",
-        "Cross-platform deployment",
+        "Game development",
+        "Interactive storytelling",
+        "Advanced physics systems",
+        "Character animation",
+        "Level design",
+        "Media production pipeline",
       ],
-      image: "/modern-architecture-visualization.png",
-      technologies: ["Unity", "React", "TouchDesigner", "OpenCV", "WebGL"],
+      image: "/3d-animation-studio.png",
+      technologies: ["Unity", "Unreal Engine", "Blender", "Maya", "Substance"],
+      category: "games-media",
     },
     {
-      title: "Real-time Production",
+      title: "VR Experiences",
       description:
-        "Live production solutions for events, broadcasts, and presentations using real-time rendering and virtual sets.",
+        "Immersive virtual reality applications for training, visualization, entertainment, and interactive presentations with full haptic support.",
+      features: [
+        "Custom VR application development",
+        "Multi-platform compatibility",
+        "Haptic feedback integration",
+        "Collaborative virtual environments",
+        "Training simulation modules",
+        "Performance analytics",
+      ],
+      image: "/futuristic-city-skyline-in-vr.png",
+      technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
+      category: "vr-experiences",
+    },
+    {
+      title: "Automotive & Mechanical Design",
+      description:
+        "Specialized visualization and simulation solutions for automotive and mechanical engineering with precise technical accuracy.",
+      features: [
+        "CAD integration",
+        "Technical visualization",
+        "Mechanical simulation",
+        "Assembly animations",
+        "Performance analysis",
+        "Interactive configurators",
+      ],
+      image: "/smart-factory-digital-twin.png",
+      technologies: ["SolidWorks", "AutoCAD", "Unreal Engine", "Unity", "Blender"],
+      category: "automotive-mechanical",
+    },
+    {
+      title: "Virtual Production",
+      description:
+        "Live production solutions for events, broadcasts, and presentations using real-time rendering, virtual sets, and LED wall technology.",
       features: [
         "Virtual set design",
         "Live compositing",
@@ -97,10 +101,12 @@ export default function ServicesPage() {
       ],
       image: "/industrial-vr-training-simulation.png",
       technologies: ["Unreal Engine", "OBS", "NDI", "Motion Capture", "LED Walls"],
+      category: "virtual-production",
     },
     {
       title: "Animation & Movies",
-      description: "Professional animation services for films, commercials, explainer videos, and promotional content.",
+      description:
+        "Professional animation services for films, commercials, explainer videos, and promotional content with cinematic quality.",
       features: [
         "3D character animation",
         "Motion graphics",
@@ -109,8 +115,9 @@ export default function ServicesPage() {
         "Post-production",
         "Sound design integration",
       ],
-      image: "/3d-animation-studio.png",
+      image: "/medical-vr-training.png",
       technologies: ["Blender", "Maya", "After Effects", "Cinema 4D", "Houdini"],
+      category: "animation-movies",
     },
   ]
 
@@ -119,9 +126,7 @@ export default function ServicesPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container px-4 md:px-6 relative">
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -148,76 +153,93 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <section className="w-full py-20">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="grid gap-12 lg:gap-16">
-              {services.map((service, i) => (
-                <motion.div
-                  key={i}
-                  id={service.title
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/^-+|-+$/g, "")}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur">
-                    <div className={`grid lg:grid-cols-2 gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
-                      <div
-                        className={`aspect-video lg:aspect-square overflow-hidden ${i % 2 === 1 ? "lg:order-2" : ""}`}
-                      >
-                        <Image
-                          src={service.image || "/placeholder.svg"}
-                          width={600}
-                          height={400}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className={`p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                        <CardHeader className="p-0 mb-6">
-                          <CardTitle className="text-3xl font-bold mb-4">{service.title}</CardTitle>
-                          <p className="text-muted-foreground text-lg">{service.description}</p>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                          <div className="grid gap-3 mb-6">
-                            {service.features.map((feature, j) => (
-                              <div key={j} className="flex items-center gap-3">
-                                <Check className="size-5 text-primary flex-shrink-0" />
-                                <span className="text-sm">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="mb-6">
-                            <h4 className="font-semibold mb-3">Technologies Used:</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {service.technologies.map((tech, j) => (
-                                <span key={j} className="px-3 py-1 bg-muted rounded-full text-sm">
-                                  {tech}
-                                </span>
+              {services.map((service, i) => {
+                const serviceId = service.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")
+                  .replace(/^-+|-+$/g, "")
+                const validId = /^[0-9]/.test(serviceId)
+                  ? `service-${serviceId}`
+                  : serviceId === "automotive-mechanical-design"
+                    ? "service-automotive-mechanical-design"
+                    : serviceId
+
+                return (
+                  <motion.div
+                    key={i}
+                    id={validId}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur">
+                      <div className={`grid lg:grid-cols-2 gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
+                        <div
+                          className={`aspect-video lg:aspect-square overflow-hidden ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                        >
+                          <Image
+                            src={service.image || "/placeholder.svg"}
+                            width={600}
+                            height={400}
+                            alt={service.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className={`p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                          <CardHeader className="p-0 mb-6">
+                            <CardTitle className="text-3xl font-bold mb-4">{service.title}</CardTitle>
+                            <p className="text-muted-foreground text-lg">{service.description}</p>
+                          </CardHeader>
+                          <CardContent className="p-0">
+                            <div className="grid gap-3 mb-6">
+                              {service.features.map((feature, j) => (
+                                <div key={j} className="flex items-center gap-3">
+                                  <Check className="size-5 text-primary flex-shrink-0" />
+                                  <span className="text-sm">{feature}</span>
+                                </div>
                               ))}
                             </div>
-                          </div>
-                          <Link href="/contact">
-                            <Button size="lg" className="rounded-full">
-                              <Calendar className="mr-2 size-4" />
-                              Book an Appointment
-                            </Button>
-                          </Link>
-                        </CardContent>
+                            <div className="mb-6">
+                              <h4 className="font-semibold mb-3">Technologies Used:</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {service.technologies.map((tech, j) => (
+                                  <span key={j} className="px-3 py-1 bg-muted rounded-full text-sm">
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="flex gap-4">
+                              <Link href="/contact">
+                                <Button size="lg" className="rounded-full">
+                                  <Calendar className="mr-2 size-4" />
+                                  Book an Appointment
+                                </Button>
+                              </Link>
+                              <Link href={`/projects?category=${service.category}`}>
+                                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
+                                  View Projects
+                                  <ArrowRight className="ml-2 size-4" />
+                                </Button>
+                              </Link>
+                            </div>
+                          </CardContent>
+                        </div>
                       </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+                    </Card>
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +254,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="rounded-full h-12 px-8">
+                  <Button size="lg" variant="secondary" className="rounded-full px-8">
                     Contact Now
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
@@ -241,7 +263,7 @@ export default function ServicesPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full h-12 px-8 bg-transparent border-white text-white hover:bg-white/10"
+                    className="rounded-full px-8 bg-transparent border-white text-white hover:bg-white/10"
                   >
                     View Projects
                   </Button>

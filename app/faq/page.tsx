@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export default function FAQPage() {
+  // ... existing faqCategories array ...
   const faqCategories = [
     {
       title: "General Questions",
@@ -125,9 +126,7 @@ export default function FAQPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container px-4 md:px-6 relative">
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
+          <div className="container px-4 md:px-6 relative mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -154,7 +153,7 @@ export default function FAQPage() {
 
         {/* FAQ Categories */}
         <section className="w-full py-20">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <div className="max-w-4xl mx-auto space-y-12">
               {faqCategories.map((category, categoryIndex) => (
                 <motion.div
@@ -196,7 +195,7 @@ export default function FAQPage() {
 
         {/* CTA Section */}
         <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -211,7 +210,7 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="rounded-full h-12 px-8">
+                  <Button size="lg" variant="secondary" className="rounded-full px-8">
                     Contact Now
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
@@ -220,7 +219,7 @@ export default function FAQPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full h-12 px-8 bg-transparent border-white text-white hover:bg-white/10"
+                    className="rounded-full px-8 bg-transparent border-white text-white hover:bg-white/10"
                   >
                     Explore Services
                   </Button>

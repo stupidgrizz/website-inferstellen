@@ -7,14 +7,10 @@ export default function ThankYouPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-4 max-w-7xl">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/inferstellen-logo.jpg-wsuhc6lixFIyApSRVr1DwpcTPclEBN.jpeg"
-                alt="INFERSTELLEN"
-                className="h-8 w-8 rounded-sm"
-              />
+              <img src="/inferstellen-logo.png" alt="INFERSTELLEN" className="h-8 w-8 rounded-sm" />
               <span className="text-xl font-bold">INFERSTELLEN</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
@@ -41,7 +37,7 @@ export default function ThankYouPage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 py-16 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
           {/* Success Icon */}
           <div className="mb-8">
@@ -112,14 +108,10 @@ export default function ThankYouPage() {
 
       {/* Footer */}
       <footer className="bg-muted/50 border-t mt-16">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 max-w-7xl">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/inferstellen-logo.jpg-wsuhc6lixFIyApSRVr1DwpcTPclEBN.jpeg"
-                alt="INFERSTELLEN"
-                className="h-6 w-6 rounded-sm"
-              />
+              <img src="/inferstellen-logo.png" alt="INFERSTELLEN" className="h-6 w-6 rounded-sm" />
               <span className="text-lg font-bold">INFERSTELLEN</span>
             </div>
             <p className="text-sm text-muted-foreground">Rendering Odd Things into Beautiful Chaos!</p>

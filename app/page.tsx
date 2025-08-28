@@ -4,22 +4,34 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronRight, Menu, X, Moon, Sun, ArrowRight, Star, ChevronLeft, Mail, Phone, ChevronDown } from "lucide-react"
+import {
+  ChevronRight,
+  Menu,
+  X,
+  ArrowRight,
+  Star,
+  ChevronLeft,
+  Mail,
+  Phone,
+  ChevronDown,
+  Volume2,
+  VolumeX,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useTheme } from "next-themes"
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const [currentProject, setCurrentProject] = useState(0)
-  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [redirectUrl, setRedirectUrl] = useState("")
+  const [isMuted, setIsMuted] = useState(true)
+  const [showUnmuteButton, setShowUnmuteButton] = useState(true)
 
   useEffect(() => {
     setMounted(true)
@@ -37,8 +49,9 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
+  const handleUnmute = () => {
+    setIsMuted(false)
+    setShowUnmuteButton(false)
   }
 
   const container = {
@@ -56,53 +69,76 @@ export default function LandingPage() {
     show: { opacity: 1, y: 0 },
   }
 
-  const projects = [
+  const featuredProjects = [
     {
-      title: "Digital Twin Port Management",
+      title: "Architectural Visualization Suite",
       description:
-        "Real-time 3D visualization system for port operations with crane and truck management, featuring AI-powered logistics optimization.",
-      thumbnail: "/futuristic-port-with-cranes-and-digital-interface.png",
+        "Unreal Engine powered architectural walkthroughs with real-time lighting and interactive elements for client presentations.",
+      thumbnail: "/modern-architecture-visualization.png",
+      video: "/project-videos/architectural-viz.mp4",
+      category: "3d-visualization",
+      slug: "architectural-visualization-suite",
+    },
+    {
+      title: "Interactive Gaming Experience",
+      description:
+        "Immersive gaming environment with advanced physics and real-time rendering for entertainment industry.",
+      thumbnail: "/3d-animation-studio.png",
+      video: "/project-videos/gaming-experience.mp4",
+      category: "games-media",
+      slug: "interactive-gaming-experience",
     },
     {
       title: "VR City Planning Experience",
       description:
         "Immersive virtual reality environment for showcasing upcoming futuristic city developments at corporate conferences.",
       thumbnail: "/futuristic-city-skyline-in-vr.png",
+      video: "/project-videos/vr-city-planning.mp4",
+      category: "vr-experiences",
+      slug: "vr-city-planning-experience",
     },
     {
-      title: "Interactive 3D Product Showcase",
+      title: "Automotive Design Visualization",
       description:
-        "Real-time 3D product visualization with RTX rendering for automotive industry presentations and marketing.",
+        "Advanced automotive visualization with real-time material rendering and interactive configuration systems.",
       thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
+      video: "/project-videos/automotive-design.mp4",
+      category: "automotive-mechanical",
+      slug: "automotive-design-visualization",
     },
     {
-      title: "Architectural Visualization Suite",
-      description:
-        "Unreal Engine powered architectural walkthroughs with real-time lighting and interactive elements for client presentations.",
-      thumbnail: "/modern-architecture-visualization.png",
+      title: "Real-time Virtual Production",
+      description: "Advanced virtual production pipeline with LED wall integration and real-time camera tracking.",
+      thumbnail: "/3d-animation-studio.png",
+      video: "/project-videos/virtual-production.mp4",
+      category: "virtual-production",
+      slug: "real-time-virtual-production",
     },
     {
-      title: "Industrial Training Simulator",
-      description:
-        "VR training environment for industrial equipment operation with haptic feedback and safety protocols.",
-      thumbnail: "/industrial-vr-training-simulation.png",
+      title: "Cinematic Animation Production",
+      description: "High-quality cinematic animations with advanced character rigging and photorealistic rendering.",
+      thumbnail: "/3d-animation-studio.png",
+      video: "/project-videos/cinematic-animation.mp4",
+      category: "animation-movies",
+      slug: "cinematic-animation-production",
     },
   ]
 
   const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length)
+    setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
   }
 
   const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length)
+    setCurrentProject((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
   }
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
+      {/* Header */}
       <header
         className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
       >
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto max-w-7xl flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2 font-bold">
             <Image
               src="/inferstellen-logo.png"
@@ -130,20 +166,23 @@ export default function LandingPage() {
               </button>
               {servicesDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
-                  <Link href="/services#digital-twins" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Digital Twins
+                  <Link href="/services#service-3d-visualization" className="block px-4 py-2 text-sm hover:bg-muted">
+                    3D Visualization
+                  </Link>
+                  <Link href="/services#games-media" className="block px-4 py-2 text-sm hover:bg-muted">
+                    Games & Media
                   </Link>
                   <Link href="/services#vr-experiences" className="block px-4 py-2 text-sm hover:bg-muted">
                     VR Experiences
                   </Link>
-                  <Link href="/services#3d-visualization" className="block px-4 py-2 text-sm hover:bg-muted">
-                    3D Visualization
+                  <Link
+                    href="/services#service-automotive-mechanical-design"
+                    className="block px-4 py-2 text-sm hover:bg-muted"
+                  >
+                    Automotive & Mechanical Design
                   </Link>
-                  <Link href="/services#interactive-media" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Interactive Media
-                  </Link>
-                  <Link href="/services#real-time-production" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Real-time Production
+                  <Link href="/services#virtual-production" className="block px-4 py-2 text-sm hover:bg-muted">
+                    Virtual Production
                   </Link>
                   <Link href="/services#animation-movies" className="block px-4 py-2 text-sm hover:bg-muted">
                     Animation & Movies
@@ -165,10 +204,6 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="hidden md:flex gap-4 items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
             <Link href="/about">
               <Button className="rounded-full">
                 Learn more
@@ -177,9 +212,6 @@ export default function LandingPage() {
             </Link>
           </div>
           <div className="flex items-center gap-4 md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-            </Button>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
               <span className="sr-only">Toggle menu</span>
@@ -221,9 +253,7 @@ export default function LandingPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container px-4 md:px-6 relative">
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -240,13 +270,13 @@ export default function LandingPage() {
                 <div className="pb-12">
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/contact">
-                      <Button size="lg" className="rounded-full h-12 px-8 text-base">
+                      <Button size="lg" className="rounded-full px-8 text-base">
                         Book an Appointment
                         <ArrowRight className="ml-2 size-4" />
                       </Button>
                     </Link>
                     <Link href="/services">
-                      <Button size="lg" variant="outline" className="rounded-full h-12 px-8 text-base bg-transparent">
+                      <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
                         Explore
                       </Button>
                     </Link>
@@ -261,15 +291,21 @@ export default function LandingPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative mx-auto max-w-5xl"
             >
-              <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
-                <Image
-                  src="/home.png"
-                  width={1280}
-                  height={640}
-                  alt="INFERSTELLEN showcase"
-                  className="w-full h-auto aspect-[2/1] object-cover"
-                  priority
-                />
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20 relative">
+                <video autoPlay loop muted={isMuted} playsInline className="w-full h-auto aspect-[2/1] object-cover">
+                  <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_6vBAlfNlZb2nskPmth0t9mUPuvsH/nXfoh6XRwWNhvJbf0NaJDq/public/landing-page.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {showUnmuteButton && (
+                  <button
+                    onClick={handleUnmute}
+                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                  >
+                    {isMuted ? <VolumeX className="size-5" /> : <Volume2 className="size-5" />}
+                  </button>
+                )}
+
                 <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
               </div>
               <div className="absolute -bottom-6 -right-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl opacity-70"></div>
@@ -280,7 +316,7 @@ export default function LandingPage() {
 
         {/* Portfolio Section */}
         <section id="portfolio" className="w-full py-20 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -294,37 +330,67 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <div className="relative">
-              <div className="flex items-center justify-between mb-6">
-                <Button variant="outline" size="icon" onClick={prevProject} className="rounded-full bg-transparent">
+            <div className="relative max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-6">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={prevProject}
+                  className="rounded-full bg-transparent absolute left-0 z-10"
+                >
                   <ChevronLeft className="size-4" />
                 </Button>
-                <Button variant="outline" size="icon" onClick={nextProject} className="rounded-full bg-transparent">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={nextProject}
+                  className="rounded-full bg-transparent absolute right-0 z-10"
+                >
                   <ChevronRight className="size-4" />
                 </Button>
               </div>
 
-              <div className="overflow-hidden">
+              <div className="overflow-hidden px-16">
                 <motion.div
-                  className="flex gap-6"
-                  animate={{ x: -currentProject * 70 + "%" }}
+                  className="flex"
+                  animate={{ x: -currentProject * 100 + "%" }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  {projects.map((project, i) => (
-                    <div key={i} className="min-w-[70%] md:min-w-[60%] lg:min-w-[50%]">
-                      <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md">
-                        <div className="aspect-video overflow-hidden">
-                          <Image
-                            src={project.thumbnail || "/placeholder.svg"}
-                            width={640}
-                            height={360}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform hover:scale-105"
-                          />
-                        </div>
+                  {featuredProjects.map((project, i) => (
+                    <div key={i} className="min-w-full flex justify-center">
+                      <Card className="w-full max-w-2xl overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
+                        <Link href={`/projects/${project.slug}`}>
+                          <div className="aspect-video overflow-hidden relative cursor-pointer">
+                            <div className="relative w-full h-full">
+                              <Image
+                                src={project.thumbnail || "/placeholder.svg"}
+                                width={640}
+                                height={360}
+                                alt={project.title}
+                                className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
+                              />
+                              <video
+                                src={project.video || "/placeholder-video.mp4"}
+                                width={640}
+                                height={360}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-300 group-hover:opacity-100"
+                              />
+                            </div>
+                          </div>
+                        </Link>
                         <CardContent className="p-6">
                           <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                          <p className="text-muted-foreground">{project.description}</p>
+                          <p className="text-muted-foreground mb-4">{project.description}</p>
+                          <Link href={`/projects/${project.slug}`}>
+                            <Button className="w-full rounded-lg">
+                              View Project Details
+                              <ArrowRight className="ml-2 size-4" />
+                            </Button>
+                          </Link>
                         </CardContent>
                       </Card>
                     </div>
@@ -333,7 +399,7 @@ export default function LandingPage() {
               </div>
 
               <div className="flex justify-center mt-6 gap-2">
-                {projects.map((_, i) => (
+                {featuredProjects.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentProject(i)}
@@ -344,53 +410,21 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
+
+            <div className="flex justify-center mt-8">
+              <Link href="/projects">
+                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
+                  Browse All Projects
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-20 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-              <p className="text-sm font-medium text-muted-foreground">Trusted by innovative companies worldwide</p>
-              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 mt-8">
-                <Image
-                  src="/elements-interactive-logo.png"
-                  alt="Elements Interactive"
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto opacity-90 rounded-sm transition-all hover:opacity-100"
-                />
-                <Image
-                  src="/hyper-baraaq-logo.png"
-                  alt="Hyper Baraaq"
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto opacity-90 rounded-sm transition-all hover:opacity-100"
-                />
-                <Image
-                  src="/wroughtspire-logo.png"
-                  alt="Wroughtspire"
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto opacity-90 rounded-sm transition-all hover:opacity-100"
-                />
-                <Image
-                  src="/broonibble-logo.png"
-                  alt="Broonibble"
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto opacity-90 rounded-sm transition-all hover:opacity-100"
-                />
-                <Image
-                  src="/zixel-logo.png"
-                  alt="Shanghai Zixel Technologies"
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto opacity-90 rounded-sm transition-all hover:opacity-100"
-                />
-              </div>
-            </div>
-
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -404,6 +438,7 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
+            {/* ... existing testimonials grid code ... */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
@@ -483,9 +518,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Contact Information Section */}
+        {/* Contact Section */}
         <section id="contact" className="w-full py-20 md:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -498,8 +533,50 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              <div className="space-y-8">
+            <div className="max-w-2xl mx-auto">
+              <form action="https://formsubmit.co/email@inferstellen.com" method="POST" className="space-y-6 mb-12">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value={redirectUrl} />
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Input type="text" name="name" placeholder="Your Name" required className="rounded-md" />
+                  </div>
+                  <div>
+                    <Input type="text" name="company" placeholder="Company Name" className="rounded-md" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Input type="email" name="email" placeholder="Email Address" required className="rounded-md" />
+                  </div>
+                  <div>
+                    <Input type="tel" name="phone" placeholder="Phone Number" className="rounded-md" />
+                  </div>
+                </div>
+
+                <div>
+                  <Input type="text" name="subject" placeholder="Subject" required className="rounded-md" />
+                </div>
+
+                <div>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell us about your project..."
+                    rows={5}
+                    required
+                    className="rounded-md"
+                  />
+                </div>
+
+                <Button type="submit" size="lg" className="w-full rounded-md">
+                  Send Message
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </form>
+
+              <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex items-center gap-4">
                   <div className="size-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
                     <Mail className="size-5" />
@@ -519,55 +596,13 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-
-              <form action="https://formsubmit.co/email@inferstellen.com" method="POST" className="space-y-6">
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value={redirectUrl} />
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Input type="text" name="name" placeholder="Your Name" required className="rounded-lg" />
-                  </div>
-                  <div>
-                    <Input type="text" name="company" placeholder="Company Name" className="rounded-lg" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Input type="email" name="email" placeholder="Email Address" required className="rounded-lg" />
-                  </div>
-                  <div>
-                    <Input type="tel" name="phone" placeholder="Phone Number" className="rounded-lg" />
-                  </div>
-                </div>
-
-                <div>
-                  <Input type="text" name="subject" placeholder="Subject" required className="rounded-lg" />
-                </div>
-
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Tell us about your project..."
-                    rows={5}
-                    required
-                    className="rounded-lg"
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full rounded-lg">
-                  Send Message
-                  <ArrowRight className="ml-2 size-4" />
-                </Button>
-              </form>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
         <section id="faq" className="w-full py-20 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -636,11 +671,8 @@ export default function LandingPage() {
 
         {/* CTA Section */}
         <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-
-          <div className="container px-4 md:px-6 relative">
+          {/* ... existing code ... */}
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -657,7 +689,7 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="rounded-full h-12 px-8 text-base">
+                  <Button size="lg" variant="secondary" className="rounded-full px-8 text-base">
                     Book an Appointment
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
@@ -666,7 +698,7 @@ export default function LandingPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
+                    className="rounded-full px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
                   >
                     Explore
                   </Button>
@@ -676,8 +708,9 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
+      {/* Footer */}
       <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
-        <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
+        <div className="container mx-auto max-w-7xl flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2 font-bold">
@@ -824,10 +857,18 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#digital-twins"
+                    href="/services#service-3d-visualization"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Digital Twins
+                    3D Visualization
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services#games-media"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Games & Media
                   </Link>
                 </li>
                 <li>
@@ -840,26 +881,18 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#3d-visualization"
+                    href="/services#service-automotive-mechanical-design"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    3D Visualization
+                    Automotive & Mechanical Design
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services#interactive-media"
+                    href="/services#virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Interactive Media
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services#real-time-production"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Real-time Production
+                    Virtual Production
                   </Link>
                 </li>
                 <li>
@@ -876,22 +909,22 @@ export default function LandingPage() {
               <h4 className="text-sm font-bold">Resources</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/case-studies" className="text-muted-foreground hover:text-foreground transition-colors">
                     Case Studies
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/documentation" className="text-muted-foreground hover:text-foreground transition-colors">
                     Documentation
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/support" className="text-muted-foreground hover:text-foreground transition-colors">
                     Support
                   </Link>
                 </li>
@@ -906,17 +939,20 @@ export default function LandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/privacy-policy"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
                     Terms of Service
                   </Link>
                 </li>
@@ -933,10 +969,13 @@ export default function LandingPage() {
               &copy; {new Date().getFullYear()} INFERSTELLEN. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
                 Terms of Service
               </Link>
               <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">

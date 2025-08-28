@@ -1,5 +1,3 @@
-# Saas Landing Page
-
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/zixel-technologies/v0-saas-landing-page)
