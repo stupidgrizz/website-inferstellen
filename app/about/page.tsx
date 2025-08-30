@@ -325,7 +325,7 @@ export default function AboutPage() {
               className="flex flex-col items-center justify-center space-y-6 text-center"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                Ready to Transform Your Vision?
+                Let's Build Something Extraordinary Together!
               </h2>
               <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
                 Let's collaborate to create extraordinary interactive experiences that push the boundaries of what's

@@ -6,12 +6,6 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-8">
       <div className="max-w-4xl mx-auto space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground">Have a Great Day!</h1>
-
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium">You're Breathtaking!</p>
-        </div>
-
         <div className="space-y-8 text-sm text-muted-foreground">
           <section>
             <h2 className="text-xl font-bold text-foreground mb-4">Privacy Policy</h2>
@@ -69,6 +63,11 @@ export default function PrivacyPolicyPage() {
               Contact Us
             </Button>
           </Link>
+        </div>
+
+        <div className="text-center pt-8 space-y-2">
+          <p className="text-sm text-muted-foreground">Have a Great Day!</p>
+          <p className="text-sm text-muted-foreground">You're Breathtaking!</p>
         </div>
       </div>
     </div>
