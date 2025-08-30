@@ -293,7 +293,10 @@ export default function LandingPage() {
             >
               <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20 relative">
                 <video autoPlay loop muted={isMuted} playsInline className="w-full h-auto aspect-[2/1] object-cover">
-                  <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_6vBAlfNlZb2nskPmth0t9mUPuvsH/nXfoh6XRwWNhvJbf0NaJDq/public/landing-page.mp4" type="video/mp4" />
+                  <source
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_6vBAlfNlZb2nskPmth0t9mUPuvsH/nXfoh6XRwWNhvJbf0NaJDq/public/landing-page.mp4"
+                    type="video/mp4"
+                  />
                   Your browser does not support the video tag.
                 </video>
 
@@ -314,7 +317,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Portfolio Section */}
+        {/* Projects Section */}
         <section id="portfolio" className="w-full py-20 md:py-32">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
@@ -331,34 +334,11 @@ export default function LandingPage() {
             </motion.div>
 
             <div className="relative max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-6">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevProject}
-                  className="rounded-full bg-transparent absolute left-0 z-10"
-                >
-                  <ChevronLeft className="size-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextProject}
-                  className="rounded-full bg-transparent absolute right-0 z-10"
-                >
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
-
-              <div className="overflow-hidden px-4 sm:px-16">
-                <motion.div
-                  className="flex gap-4 sm:gap-0"
-                  animate={{ x: -currentProject * 100 + "%" }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
+              <div className="overflow-x-auto scrollbar-hide md:hidden">
+                <div className="flex gap-4 pb-4" style={{ width: `${featuredProjects.length * 320}px` }}>
                   {featuredProjects.map((project, i) => (
-                    <div key={i} className="min-w-full flex justify-center px-2 sm:px-0">
-                      <Card className="w-full max-w-2xl overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
+                    <div key={i} className="min-w-[300px] flex-shrink-0">
+                      <Card className="w-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
                         <Link href={`/projects/${project.slug}`}>
                           <div className="aspect-video overflow-hidden relative cursor-pointer">
                             <div className="relative w-full h-full">
@@ -395,7 +375,66 @@ export default function LandingPage() {
                       </Card>
                     </div>
                   ))}
-                </motion.div>
+                </div>
+              </div>
+
+              <div className="hidden md:block">
+                <div className="overflow-hidden">
+                  <motion.div
+                    className="flex gap-4 sm:gap-0"
+                    animate={{ x: -currentProject * 100 + "%" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  >
+                    {featuredProjects.map((project, i) => (
+                      <div key={i} className="min-w-full flex justify-center px-2 sm:px-0">
+                        <Card className="w-full max-w-2xl overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
+                          <Link href={`/projects/${project.slug}`}>
+                            <div className="aspect-video overflow-hidden relative cursor-pointer">
+                              <div className="relative w-full h-full">
+                                <Image
+                                  src={project.thumbnail || "/placeholder.svg"}
+                                  width={640}
+                                  height={360}
+                                  alt={project.title}
+                                  className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
+                                />
+                                <video
+                                  src={project.video || "/placeholder-video.mp4"}
+                                  width={640}
+                                  height={360}
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-300 group-hover:opacity-100"
+                                />
+                              </div>
+                            </div>
+                          </Link>
+                          <CardContent className="p-6">
+                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-muted-foreground mb-4">{project.description}</p>
+                            <Link href={`/projects/${project.slug}`}>
+                              <Button className="w-full rounded-lg">
+                                View Project Details
+                                <ArrowRight className="ml-2 size-4" />
+                              </Button>
+                            </Link>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                <div className="flex items-center justify-center mt-6 gap-2">
+                  <Button variant="outline" size="icon" onClick={prevProject} className="rounded-full bg-transparent">
+                    <ChevronLeft className="size-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" onClick={nextProject} className="rounded-full bg-transparent">
+                    <ChevronRight className="size-4" />
+                  </Button>
+                </div>
               </div>
 
               <div className="flex justify-center mt-6 gap-2">
@@ -414,11 +453,176 @@ export default function LandingPage() {
             <div className="flex justify-center mt-8">
               <Link href="/projects">
                 <Button size="lg" variant="outline" className="rounded-full bg-transparent">
-                  Browse All Projects
+                  View All Projects
                   <ArrowRight className="ml-2 size-4" />
                 </Button>
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="w-full py-20 md:py-32 bg-muted/30">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Services</h2>
+              <p className="max-w-[800px] mx-auto text-muted-foreground md:text-lg">
+                Discover our comprehensive range of cutting-edge solutions
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">3D Visualization</h3>
+                    <p className="text-muted-foreground mb-4">
+                      High-quality 3D rendering and visualization solutions with photorealistic results.
+                    </p>
+                    <Link href="/services#service-3d-visualization">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">Games & Media</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Interactive gaming experiences and digital media production with cutting-edge graphics.
+                    </p>
+                    <Link href="/services#games-media">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">VR Experiences</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Immersive virtual reality applications for training, visualization, and entertainment.
+                    </p>
+                    <Link href="/services#vr-experiences">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">Automotive & Mechanical Design</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Specialized visualization and simulation solutions with precise technical accuracy.
+                    </p>
+                    <Link href="/services#service-automotive-mechanical-design">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">Virtual Production</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Live production solutions using real-time rendering and LED wall technology.
+                    </p>
+                    <Link href="/services#virtual-production">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3">Animation & Movies</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Professional animation services for films, commercials, and promotional content.
+                    </p>
+                    <Link href="/services#animation-movies">
+                      <Button className="w-full rounded-lg">
+                        Learn More
+                        <ArrowRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="text-center mt-12"
+            >
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
+                  View All Services
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </section>
 
@@ -527,7 +731,9 @@ export default function LandingPage() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center justify-center space-y-4 text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Get In Touch</h2>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Let's Build Something Extraordinary Together!
+              </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
                 Ready to bring your vision to life? Contact us to discuss your next project.
               </p>
@@ -868,7 +1074,10 @@ export default function LandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/terms-of-service"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
                     Terms of Service
                   </Link>
                 </li>
@@ -891,7 +1100,10 @@ export default function LandingPage() {
               >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/terms-of-service"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Terms of Service
               </Link>
               <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
