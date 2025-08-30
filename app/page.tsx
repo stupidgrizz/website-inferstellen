@@ -334,10 +334,10 @@ export default function LandingPage() {
             </motion.div>
 
             <div className="relative max-w-4xl mx-auto">
-              <div className="overflow-x-auto scrollbar-hide md:hidden">
-                <div className="flex gap-4 pb-4" style={{ width: `${featuredProjects.length * 320}px` }}>
+              <div className="overflow-x-auto scrollbar-hide md:hidden px-4">
+                <div className="flex gap-4 pb-4">
                   {featuredProjects.map((project, i) => (
-                    <div key={i} className="min-w-[300px] flex-shrink-0">
+                    <div key={i} className="min-w-[280px] max-w-[280px] flex-shrink-0">
                       <Card className="w-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
                         <Link href={`/projects/${project.slug}`}>
                           <div className="aspect-video overflow-hidden relative cursor-pointer">
