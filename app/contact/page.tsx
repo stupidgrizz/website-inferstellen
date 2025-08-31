@@ -25,12 +25,14 @@ export default function ContactPage() {
       title: "Email",
       details: "contact@inferstellen.com",
       description: "Send us an email anytime",
+      href: "mailto:contact@inferstellen.com",
     },
     {
       icon: Phone,
       title: "Phone",
       details: "+92 334 2229582",
       description: "Call us during business hours",
+      href: "tel:+923342229582",
     },
     {
       icon: MapPin,
@@ -105,7 +107,16 @@ export default function ContactPage() {
                         <info.icon className="size-6" />
                       </div>
                       <h3 className="font-semibold mb-2">{info.title}</h3>
-                      <p className="font-medium mb-1">{info.details}</p>
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          className="font-medium mb-1 hover:text-primary transition-colors cursor-pointer block"
+                        >
+                          {info.details}
+                        </a>
+                      ) : (
+                        <p className="font-medium mb-1">{info.details}</p>
+                      )}
                       <p className="text-sm text-muted-foreground">{info.description}</p>
                     </CardContent>
                   </Card>
