@@ -544,46 +544,61 @@ export default function LandingPage() {
 
             <div className="relative max-w-4xl mx-auto">
               <div className="overflow-x-auto scrollbar-hide md:hidden px-4">
-                <div className="flex gap-4 pb-4">
-                  {featuredProjects.map((project, i) => (
-                    <div key={i} className="min-w-[280px] max-w-[280px] flex-shrink-0">
-                      <Card className="w-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
-                        <Link href={`/projects/${project.slug}`}>
-                          <div className="aspect-video overflow-hidden relative cursor-pointer">
-                            <div className="relative w-full h-full">
-                              <Image
-                                src={project.thumbnail || "/placeholder.svg"}
-                                width={640}
-                                height={360}
-                                alt={project.title}
-                                className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
-                              />
-                              <video
-                                src={project.video || "/placeholder-video.mp4"}
-                                width={640}
-                                height={360}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-300 group-hover:opacity-100"
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                        <CardContent className="p-6">
-                          <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                          <p className="text-muted-foreground mb-4">{project.description}</p>
+                <div className="overflow-hidden">
+                  <motion.div
+                    className="flex gap-4 pb-4"
+                    animate={{ x: -currentProject * 284 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  >
+                    {featuredProjects.map((project, i) => (
+                      <div key={i} className="min-w-[280px] max-w-[280px] flex-shrink-0">
+                        <Card className="w-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md group">
                           <Link href={`/projects/${project.slug}`}>
-                            <Button className="w-full rounded-lg">
-                              View Project Details
-                              <ArrowRight className="ml-2 size-4" />
-                            </Button>
+                            <div className="aspect-video overflow-hidden relative cursor-pointer">
+                              <div className="relative w-full h-full">
+                                <Image
+                                  src={project.thumbnail || "/placeholder.svg"}
+                                  width={640}
+                                  height={360}
+                                  alt={project.title}
+                                  className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
+                                />
+                                <video
+                                  src={project.video || "/placeholder-video.mp4"}
+                                  width={640}
+                                  height={360}
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-300 group-hover:opacity-100"
+                                />
+                              </div>
+                            </div>
                           </Link>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  ))}
+                          <CardContent className="p-6">
+                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-muted-foreground mb-4">{project.description}</p>
+                            <Link href={`/projects/${project.slug}`}>
+                              <Button className="w-full rounded-lg">
+                                View Project Details
+                                <ArrowRight className="ml-2 size-4" />
+                              </Button>
+                            </Link>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                <div className="flex items-center justify-center mt-6 gap-2">
+                  <Button variant="outline" size="icon" onClick={prevProject} className="rounded-full bg-transparent">
+                    <ChevronLeft className="size-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" onClick={nextProject} className="rounded-full bg-transparent">
+                    <ChevronRight className="size-4" />
+                  </Button>
                 </div>
               </div>
 
@@ -833,7 +848,12 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">contact@inferstellen.com</p>
+                    <a
+                      href="mailto:contact@inferstellen.com"
+                      className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                    >
+                      contact@inferstellen.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -842,7 +862,12 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">+92 334 2229582</p>
+                    <a
+                      href="tel:+923342229582"
+                      className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                    >
+                      +92 334 2229582
+                    </a>
                   </div>
                 </div>
               </div>
