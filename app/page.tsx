@@ -76,7 +76,8 @@ export default function LandingPage() {
       description:
         "Unreal Engine powered architectural walkthroughs with real-time lighting and interactive elements for client presentations.",
       thumbnail: "/modern-architecture-visualization.png",
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
+      video:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
       category: "3d-visualization",
       slug: "architectural-visualization-suite",
     },
@@ -85,7 +86,8 @@ export default function LandingPage() {
       description:
         "Immersive gaming environment with advanced physics and real-time rendering for entertainment industry.",
       thumbnail: "/3d-animation-studio.png",
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
+      video:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
       category: "games-media",
       slug: "interactive-gaming-experience",
     },
@@ -103,7 +105,8 @@ export default function LandingPage() {
       description:
         "Advanced automotive visualization with real-time material rendering and interactive configuration systems.",
       thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
+      video:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
       category: "automotive-mechanical",
       slug: "automotive-design-visualization",
     },
@@ -111,7 +114,8 @@ export default function LandingPage() {
       title: "Real-time Virtual Production",
       description: "Advanced virtual production pipeline with LED wall integration and real-time camera tracking.",
       thumbnail: "/3d-animation-studio.png",
-      video: "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
+      video:
+        "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
       category: "virtual-production",
       slug: "real-time-virtual-production",
     },
@@ -348,7 +352,8 @@ export default function LandingPage() {
                     "Data visualization",
                   ],
                   image: "/3d-visualization.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/3d-visualization.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/3d-visualization.mp4",
                   technologies: ["Blender", "3ds Max", "RTX", "Unreal Engine", "WebGL"],
                   category: "3d-visualization",
                 },
@@ -365,7 +370,8 @@ export default function LandingPage() {
                     "Media production pipeline",
                   ],
                   image: "/games-media.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/games-media.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/games-media.mp4",
                   technologies: ["Unity", "Unreal Engine", "Blender", "Maya", "Substance"],
                   category: "games-media",
                 },
@@ -382,7 +388,8 @@ export default function LandingPage() {
                     "Performance analytics",
                   ],
                   image: "/vr-experiences.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/vr-experiences.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/vr-experiences.mp4",
                   technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
                   category: "vr-experiences",
                 },
@@ -399,7 +406,8 @@ export default function LandingPage() {
                     "Interactive configurators",
                   ],
                   image: "/automotive-mechanical-design.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/automotive-mechanical-design.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/automotive-mechanical-design.mp4",
                   technologies: ["SolidWorks", "AutoCAD", "Unreal Engine", "Unity", "Blender"],
                   category: "automotive-mechanical",
                 },
@@ -416,7 +424,8 @@ export default function LandingPage() {
                     "Broadcast integration",
                   ],
                   image: "/virtual-production.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
                   technologies: ["Unreal Engine", "OBS", "NDI", "Motion Capture", "LED Walls"],
                   category: "virtual-production",
                 },
@@ -433,7 +442,8 @@ export default function LandingPage() {
                     "Sound design integration",
                   ],
                   image: "/animation-movies.png",
-                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/animation-movies.mp4",
+                  video:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/animation-movies.mp4",
                   technologies: ["Blender", "Maya", "After Effects", "Cinema 4D", "Houdini"],
                   category: "animation-movies",
                 },
@@ -487,16 +497,7 @@ export default function LandingPage() {
                                 </div>
                               ))}
                             </div>
-                            <div className="mb-6">
-                              <h4 className="font-semibold mb-3">Technologies Used:</h4>
-                              <div className="flex flex-wrap gap-2">
-                                {service.technologies.map((tech, j) => (
-                                  <span key={j} className="px-3 py-1 bg-muted rounded-full text-sm">
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
+                            {/* Removed the "Technologies Used:" section from service cards */}
                             <div className="flex flex-col sm:flex-row gap-4">
                               <Link href={`/projects?category=${service.category}`}>
                                 <Button size="lg" variant="outline" className="rounded-full bg-transparent">
