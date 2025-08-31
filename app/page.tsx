@@ -16,10 +16,11 @@ import {
   ChevronDown,
   Volume2,
   VolumeX,
+  Check,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -75,7 +76,7 @@ export default function LandingPage() {
       description:
         "Unreal Engine powered architectural walkthroughs with real-time lighting and interactive elements for client presentations.",
       thumbnail: "/modern-architecture-visualization.png",
-      video: "/project-videos/architectural-viz.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
       category: "3d-visualization",
       slug: "architectural-visualization-suite",
     },
@@ -84,7 +85,7 @@ export default function LandingPage() {
       description:
         "Immersive gaming environment with advanced physics and real-time rendering for entertainment industry.",
       thumbnail: "/3d-animation-studio.png",
-      video: "/project-videos/gaming-experience.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
       category: "games-media",
       slug: "interactive-gaming-experience",
     },
@@ -102,7 +103,7 @@ export default function LandingPage() {
       description:
         "Advanced automotive visualization with real-time material rendering and interactive configuration systems.",
       thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-      video: "/project-videos/automotive-design.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
       category: "automotive-mechanical",
       slug: "automotive-design-visualization",
     },
@@ -110,7 +111,7 @@ export default function LandingPage() {
       title: "Real-time Virtual Production",
       description: "Advanced virtual production pipeline with LED wall integration and real-time camera tracking.",
       thumbnail: "/3d-animation-studio.png",
-      video: "/project-videos/virtual-production.mp4",
+      video: "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
       category: "virtual-production",
       slug: "real-time-virtual-production",
     },
@@ -289,10 +290,10 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative mx-auto max-w-5xl"
+              className="relative mx-auto max-w-5xl lg:max-w-7xl"
             >
               <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20 relative">
-                <video autoPlay loop muted={isMuted} playsInline className="w-full h-auto aspect-[2/1] object-cover">
+                <video autoPlay loop muted={isMuted} playsInline className="w-full h-auto aspect-video object-cover">
                   <source
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_6vBAlfNlZb2nskPmth0t9mUPuvsH/nXfoh6XRwWNhvJbf0NaJDq/public/landing-page.mp4"
                     type="video/mp4"
@@ -317,8 +318,215 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="portfolio" className="w-full py-20 md:py-32">
+        <section className="w-full py-20">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Services</h2>
+              <p className="max-w-[800px] mx-auto text-muted-foreground md:text-lg">
+                Discover our comprehensive range of cutting-edge solutions
+              </p>
+            </motion.div>
+
+            <div className="grid gap-8 lg:gap-16">
+              {[
+                {
+                  title: "3D Visualization",
+                  description:
+                    "High-quality 3D rendering and visualization solutions for architecture, products, and complex data representation with photorealistic results.",
+                  features: [
+                    "Photorealistic rendering",
+                    "Real-time ray tracing",
+                    "Interactive 3D models",
+                    "Architectural walkthroughs",
+                    "Product configurators",
+                    "Data visualization",
+                  ],
+                  image: "/3d-visualization.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/3d-visualization.mp4",
+                  technologies: ["Blender", "3ds Max", "RTX", "Unreal Engine", "WebGL"],
+                  category: "3d-visualization",
+                },
+                {
+                  title: "Games & Media",
+                  description:
+                    "Interactive gaming experiences and digital media production with cutting-edge graphics, physics, and immersive storytelling.",
+                  features: [
+                    "Game development",
+                    "Interactive storytelling",
+                    "Advanced physics systems",
+                    "Character animation",
+                    "Level design",
+                    "Media production pipeline",
+                  ],
+                  image: "/games-media.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/games-media.mp4",
+                  technologies: ["Unity", "Unreal Engine", "Blender", "Maya", "Substance"],
+                  category: "games-media",
+                },
+                {
+                  title: "VR Experiences",
+                  description:
+                    "Immersive virtual reality applications for training, visualization, entertainment, and interactive presentations with full haptic support.",
+                  features: [
+                    "Custom VR application development",
+                    "Multi-platform compatibility",
+                    "Haptic feedback integration",
+                    "Collaborative virtual environments",
+                    "Training simulation modules",
+                    "Performance analytics",
+                  ],
+                  image: "/vr-experiences.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/vr-experiences.mp4",
+                  technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
+                  category: "vr-experiences",
+                },
+                {
+                  title: "Automotive & Mechanical Design",
+                  description:
+                    "Specialized visualization and simulation solutions for automotive and mechanical engineering with precise technical accuracy.",
+                  features: [
+                    "CAD integration",
+                    "Technical visualization",
+                    "Mechanical simulation",
+                    "Assembly animations",
+                    "Performance analysis",
+                    "Interactive configurators",
+                  ],
+                  image: "/automotive-mechanical-design.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/automotive-mechanical-design.mp4",
+                  technologies: ["SolidWorks", "AutoCAD", "Unreal Engine", "Unity", "Blender"],
+                  category: "automotive-mechanical",
+                },
+                {
+                  title: "Virtual Production",
+                  description:
+                    "Live production solutions for events, broadcasts, and presentations using real-time rendering, virtual sets, and LED wall technology.",
+                  features: [
+                    "Virtual set design",
+                    "Live compositing",
+                    "Motion capture integration",
+                    "Real-time lighting",
+                    "Multi-camera support",
+                    "Broadcast integration",
+                  ],
+                  image: "/virtual-production.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
+                  technologies: ["Unreal Engine", "OBS", "NDI", "Motion Capture", "LED Walls"],
+                  category: "virtual-production",
+                },
+                {
+                  title: "Animation & Movies",
+                  description:
+                    "Professional animation services for films, commercials, explainer videos, and promotional content with cinematic quality.",
+                  features: [
+                    "3D character animation",
+                    "Motion graphics",
+                    "Visual effects",
+                    "Storyboard development",
+                    "Post-production",
+                    "Sound design integration",
+                  ],
+                  image: "/animation-movies.png",
+                  video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/animation-movies.mp4",
+                  technologies: ["Blender", "Maya", "After Effects", "Cinema 4D", "Houdini"],
+                  category: "animation-movies",
+                },
+              ].map((service, i) => {
+                const serviceId = service.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")
+                  .replace(/^-+|-+$/g, "")
+                const validId = /^[0-9]/.test(serviceId)
+                  ? `service-${serviceId}`
+                  : serviceId === "automotive-mechanical-design"
+                    ? "service-automotive-mechanical-design"
+                    : serviceId
+
+                return (
+                  <motion.div
+                    key={i}
+                    id={validId}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur">
+                      <div
+                        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                      >
+                        <div
+                          className={`aspect-video lg:aspect-square overflow-hidden relative ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                        >
+                          <video
+                            src={service.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className={`p-6 lg:p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                          <CardHeader className="p-0 mb-6">
+                            <CardTitle className="text-3xl font-bold mb-4">{service.title}</CardTitle>
+                            <p className="text-muted-foreground text-lg">{service.description}</p>
+                          </CardHeader>
+                          <CardContent className="p-0">
+                            <div className="grid gap-3 mb-6">
+                              {service.features.map((feature, j) => (
+                                <div key={j} className="flex items-center gap-3">
+                                  <Check className="size-5 text-primary flex-shrink-0" />
+                                  <span className="text-sm">{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mb-6">
+                              <h4 className="font-semibold mb-3">Technologies Used:</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {service.technologies.map((tech, j) => (
+                                  <span key={j} className="px-3 py-1 bg-muted rounded-full text-sm">
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                              <Link href={`/projects?category=${service.category}`}>
+                                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
+                                  View Projects
+                                  <ArrowRight className="ml-2 size-4" />
+                                </Button>
+                              </Link>
+                            </div>
+                          </CardContent>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
+                  View All Services
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Latest Projects */}
+        <section className="w-full py-20 md:py-32 bg-muted/30">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -461,173 +669,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="w-full py-20 md:py-32 bg-muted/30">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Services</h2>
-              <p className="max-w-[800px] mx-auto text-muted-foreground md:text-lg">
-                Discover our comprehensive range of cutting-edge solutions
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">3D Visualization</h3>
-                    <p className="text-muted-foreground mb-4">
-                      High-quality 3D rendering and visualization solutions with photorealistic results.
-                    </p>
-                    <Link href="/services#service-3d-visualization">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">Games & Media</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Interactive gaming experiences and digital media production with cutting-edge graphics.
-                    </p>
-                    <Link href="/services#games-media">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">VR Experiences</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Immersive virtual reality applications for training, visualization, and entertainment.
-                    </p>
-                    <Link href="/services#vr-experiences">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">Automotive & Mechanical Design</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Specialized visualization and simulation solutions with precise technical accuracy.
-                    </p>
-                    <Link href="/services#service-automotive-mechanical-design">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">Virtual Production</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Live production solutions using real-time rendering and LED wall technology.
-                    </p>
-                    <Link href="/services#virtual-production">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <Card className="h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md transition-all group">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3">Animation & Movies</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Professional animation services for films, commercials, and promotional content.
-                    </p>
-                    <Link href="/services#animation-movies">
-                      <Button className="w-full rounded-lg">
-                        Learn More
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-center mt-12"
-            >
-              <Link href="/services">
-                <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
-                  View All Services
-                  <ArrowRight className="ml-2 size-4" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="w-full py-20 md:py-32">
+        {/* What Our Clients Say */}
+        <section className="w-full py-20 md:py-32">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

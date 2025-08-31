@@ -19,7 +19,7 @@ const projectsData = [
     fullDescription:
       "This comprehensive architectural visualization suite represents the cutting edge of real-time rendering technology. Built entirely in Unreal Engine 5, the project showcases photorealistic architectural walkthroughs that allow clients to experience spaces before they're built. The system features dynamic lighting that changes throughout the day, interactive elements that respond to user input, and seamless transitions between interior and exterior spaces.",
     thumbnail: "/modern-architecture-visualization.png",
-    video: "/project-videos/architectural-viz.mp4",
+    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
     category: "3d-visualization",
     technologies: ["Unreal Engine 5", "Lumen", "Nanite", "Real-time Ray Tracing", "Architectural Visualization"],
     year: "2024",
@@ -112,7 +112,7 @@ const projectsData = [
     fullDescription:
       "An ambitious gaming project that pushes the boundaries of interactive entertainment. This experience combines cutting-edge physics simulation with stunning visual effects to create a truly immersive world. Players navigate through dynamically changing environments where every action has realistic consequences, from destructible environments to complex particle systems that respond to player behavior.",
     thumbnail: "/3d-animation-studio.png",
-    video: "/project-videos/gaming-experience.mp4",
+    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
     category: "games-media",
     technologies: ["Unity 2023", "HDRP", "Physics Simulation", "Procedural Generation", "AI Behavior Trees"],
     year: "2024",
@@ -236,7 +236,7 @@ const projectsData = [
     fullDescription:
       "A sophisticated automotive visualization platform that revolutionizes how car manufacturers present their vehicles to customers and stakeholders. This system features photorealistic material rendering, real-time configuration changes, and detailed technical visualizations. Users can explore every aspect of the vehicle, from paint finishes to interior materials, with unprecedented detail and accuracy.",
     thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-    video: "/project-videos/automotive-design.mp4",
+    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
     category: "automotive-mechanical",
     technologies: ["Unreal Engine", "RTX Ray Tracing", "CAD Integration", "Material Editor", "Real-time Configurator"],
     year: "2024",
@@ -266,7 +266,7 @@ const projectsData = [
     fullDescription:
       "A comprehensive virtual production solution that brings Hollywood-level technology to content creators. This system combines real-time rendering with LED wall technology and precise camera tracking to create seamless integration between live-action footage and digital environments. The platform supports multiple camera angles, dynamic lighting, and real-time compositing for broadcast-quality output.",
     thumbnail: "/3d-animation-studio.png",
-    video: "/project-videos/virtual-production.mp4",
+    video: "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
     category: "virtual-production",
     technologies: [
       "Unreal Engine",
