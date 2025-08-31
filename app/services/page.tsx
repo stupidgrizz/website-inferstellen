@@ -35,7 +35,8 @@ export default function ServicesPage() {
         "Product configurators",
         "Data visualization",
       ],
-      image: "/3d-car-visualization-with-rtx-lighting.png",
+      image: "/services-gallery/3d-visualization.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/3d-visualization.mp4",
       technologies: ["Blender", "3ds Max", "RTX", "Unreal Engine", "WebGL"],
       category: "3d-visualization",
     },
@@ -51,7 +52,8 @@ export default function ServicesPage() {
         "Level design",
         "Media production pipeline",
       ],
-      image: "/3d-animation-studio.png",
+      image: "/services-gallery/games-media.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/games-media.mp4",
       technologies: ["Unity", "Unreal Engine", "Blender", "Maya", "Substance"],
       category: "games-media",
     },
@@ -67,7 +69,8 @@ export default function ServicesPage() {
         "Training simulation modules",
         "Performance analytics",
       ],
-      image: "/futuristic-city-skyline-in-vr.png",
+      image: "/services-gallery/vr-experiences.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/vr-experiences.mp4",
       technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
       category: "vr-experiences",
     },
@@ -83,7 +86,8 @@ export default function ServicesPage() {
         "Performance analysis",
         "Interactive configurators",
       ],
-      image: "/smart-factory-digital-twin.png",
+      image: "/services-gallery/automotive-mechanical-design.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/automotive-mechanical-design.mp4",
       technologies: ["SolidWorks", "AutoCAD", "Unreal Engine", "Unity", "Blender"],
       category: "automotive-mechanical",
     },
@@ -99,7 +103,8 @@ export default function ServicesPage() {
         "Multi-camera support",
         "Broadcast integration",
       ],
-      image: "/industrial-vr-training-simulation.png",
+      image: "/services-gallery/virtual-production.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/virtual-production.mp4",
       technologies: ["Unreal Engine", "OBS", "NDI", "Motion Capture", "LED Walls"],
       category: "virtual-production",
     },
@@ -115,7 +120,8 @@ export default function ServicesPage() {
         "Post-production",
         "Sound design integration",
       ],
-      image: "/medical-vr-training.png",
+      image: "/services-gallery/animation-movies.png",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/services-videos/animation-movies.mp4",
       technologies: ["Blender", "Maya", "After Effects", "Cinema 4D", "Houdini"],
       category: "animation-movies",
     },
@@ -180,14 +186,22 @@ export default function ServicesPage() {
                         className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
                       >
                         <div
-                          className={`aspect-video lg:aspect-square overflow-hidden ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                          className={`aspect-video lg:aspect-square overflow-hidden relative group ${i % 2 === 1 ? "lg:order-2" : ""}`}
                         >
                           <Image
                             src={service.image || "/placeholder.svg"}
                             width={600}
                             height={400}
                             alt={service.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-0 group-hover:scale-110"
+                          />
+                          <video
+                            src={service.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100"
                           />
                         </div>
                         <div className={`p-6 lg:p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>

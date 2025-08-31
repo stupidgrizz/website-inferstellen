@@ -30,7 +30,7 @@ export default function ProjectsPage() {
       description:
         "Unreal Engine powered architectural walkthroughs with real-time lighting and interactive elements for client presentations.",
       thumbnail: "/modern-architecture-visualization.png",
-      video: "/project-videos/architectural-viz.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
       category: "3d-visualization",
       technologies: ["Unreal Engine", "Architectural Viz", "Real-time Lighting"],
       year: "2024",
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
       description:
         "Immersive gaming environment with advanced physics and real-time rendering for entertainment industry.",
       thumbnail: "/3d-animation-studio.png",
-      video: "/project-videos/gaming-experience.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
       category: "games-media",
       technologies: ["Unity", "Game Development", "Physics", "Interactive Design"],
       year: "2024",
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
       description:
         "Advanced automotive visualization with real-time material rendering and interactive configuration systems.",
       thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-      video: "/project-videos/automotive-design.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
       category: "automotive-mechanical",
       technologies: ["Automotive", "CAD Integration", "Real-time Rendering"],
       year: "2024",
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
       title: "Real-time Virtual Production",
       description: "Advanced virtual production pipeline with LED wall integration and real-time camera tracking.",
       thumbnail: "/3d-animation-studio.png",
-      video: "/project-videos/virtual-production.mp4",
+      video: "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
       category: "virtual-production",
       technologies: ["Virtual Production", "LED Walls", "Real-time Tracking"],
       year: "2024",
