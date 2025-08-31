@@ -464,16 +464,13 @@ export default function LandingPage() {
                     id={validId}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
                     <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur">
                       <div
-                        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                        className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${i % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
                       >
-                        <div
-                          className={`aspect-video lg:aspect-square overflow-hidden relative ${i % 2 === 1 ? "lg:order-2" : ""}`}
-                        >
+                        <div className={`aspect-video overflow-hidden relative ${i % 2 === 1 ? "md:order-2" : ""}`}>
                           <video
                             src={service.video}
                             autoPlay
@@ -483,30 +480,42 @@ export default function LandingPage() {
                             className="w-full h-full object-cover"
                           />
                         </div>
-                        <div className={`p-6 lg:p-8 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                          <CardHeader className="p-0 mb-6">
-                            <CardTitle className="text-3xl font-bold mb-4">{service.title}</CardTitle>
-                            <p className="text-muted-foreground text-lg">{service.description}</p>
-                          </CardHeader>
-                          <CardContent className="p-0">
-                            <div className="grid gap-3 mb-6">
-                              {service.features.map((feature, j) => (
-                                <div key={j} className="flex items-center gap-3">
-                                  <Check className="size-5 text-primary flex-shrink-0" />
-                                  <span className="text-sm">{feature}</span>
-                                </div>
-                              ))}
-                            </div>
-                            {/* Removed the "Technologies Used:" section from service cards */}
-                            <div className="flex flex-col sm:flex-row gap-4">
-                              <Link href={`/projects?category=${service.category}`}>
-                                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
-                                  View Projects
-                                  <ArrowRight className="ml-2 size-4" />
-                                </Button>
-                              </Link>
-                            </div>
-                          </CardContent>
+                        {/* Remove aspect-video constraint on mobile to allow dynamic vertical extension */}
+                        <div
+                          className={`flex flex-col justify-center md:aspect-video ${i % 2 === 1 ? "md:order-1" : ""}`}
+                        >
+                          <div className="p-4 md:p-3 lg:p-6 h-full flex flex-col justify-center">
+                            <CardHeader className="p-0 mb-2 md:mb-2">
+                              <CardTitle className="text-lg md:text-lg lg:text-2xl font-bold mb-1 md:mb-1">
+                                {service.title}
+                              </CardTitle>
+                              <p className="text-muted-foreground text-xs md:text-xs lg:text-base">
+                                {service.description}
+                              </p>
+                            </CardHeader>
+                            <CardContent className="p-0 flex-1 flex flex-col justify-center">
+                              <div className="grid gap-1 mb-2 md:mb-2 lg:mb-4">
+                                {service.features.slice(0, 3).map((feature, j) => (
+                                  <div key={j} className="flex items-center gap-2">
+                                    <Check className="size-2 md:size-2 lg:size-3 text-primary flex-shrink-0" />
+                                    <span className="text-xs md:text-xs lg:text-sm">{feature}</span>
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="flex flex-col sm:flex-row gap-2">
+                                <Link href={`/projects?category=${service.category}`}>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="rounded-full bg-transparent text-xs md:text-xs lg:text-sm"
+                                  >
+                                    View Projects
+                                    <ArrowRight className="ml-2 size-2 md:size-2 lg:size-3" />
+                                  </Button>
+                                </Link>
+                              </div>
+                            </CardContent>
+                          </div>
                         </div>
                       </div>
                     </Card>
