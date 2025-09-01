@@ -13,7 +13,6 @@ import {
   ChevronLeft,
   Mail,
   Phone,
-  ChevronDown,
   Volume2,
   VolumeX,
   Check,
@@ -24,15 +23,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
-export default function LandingPage() {
+export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
-  const [currentProject, setCurrentProject] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [redirectUrl, setRedirectUrl] = useState("")
   const [isMuted, setIsMuted] = useState(true)
   const [showUnmuteButton, setShowUnmuteButton] = useState(true)
+  const [currentProject, setCurrentProject] = useState(0)
 
   useEffect(() => {
     setMounted(true)
@@ -161,40 +159,12 @@ export default function LandingPage() {
             >
               Projects
             </Link>
-            <div className="relative">
-              <button
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Services
-                <ChevronDown className="size-3" />
-              </button>
-              {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
-                  <Link href="/services#service-3d-visualization" className="block px-4 py-2 text-sm hover:bg-muted">
-                    3D Visualization
-                  </Link>
-                  <Link href="/services#games-media" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Games & Media
-                  </Link>
-                  <Link href="/services#vr-experiences" className="block px-4 py-2 text-sm hover:bg-muted">
-                    VR Experiences
-                  </Link>
-                  <Link
-                    href="/services#service-automotive-mechanical-design"
-                    className="block px-4 py-2 text-sm hover:bg-muted"
-                  >
-                    Automotive & Mechanical Design
-                  </Link>
-                  <Link href="/services#virtual-production" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Virtual Production
-                  </Link>
-                  <Link href="/services#animation-movies" className="block px-4 py-2 text-sm hover:bg-muted">
-                    Animation & Movies
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link
+              href="/services"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Services
+            </Link>
             <Link
               href="/contact"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -256,40 +226,77 @@ export default function LandingPage() {
         )}
       </header>
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative">
+        <section
+          className="w-full h-screen min-h-[60vh] flex items-center justify-center relative overflow-hidden"
+          style={{ aspectRatio: "16/10" }}
+        >
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative h-full flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center max-w-3xl mx-auto mb-12"
+              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-8"
             >
-              <div className="pt-16">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-                  INFERSTELLEN
-                </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Rendering Odd Things into Beautiful Chaos!
-                </p>
-                <div className="pb-12">
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/contact">
-                      <Button size="lg" className="rounded-full px-8 text-base">
-                        Book an Appointment
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
-                    <Link href="/services">
-                      <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
-                        Explore
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
+              <div className="relative rounded-xl overflow-hidden">
+                <img
+                  src="/inferstellen-banner.png"
+                  alt="Inferstellen Banner"
+                  className="w-full h-auto aspect-[2/1] object-cover"
+                />
               </div>
             </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center md:mt-[-2rem] lg:mt-0"
+            >
+              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto font-medium text-foreground">
+                Rendering Odd Things into Beautiful Chaos!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Link href="/contact">
+                  <Button size="lg" className="rounded-full px-8 text-base">
+                    Book an Appointment
+                    <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </Link>
+                <Link href="/services">
+                  <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
+                    Explore
+                  </Button>
+                </Link>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex justify-center"
+              >
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  className="text-muted-foreground"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -316,8 +323,6 @@ export default function LandingPage() {
 
                 <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
               </div>
-              <div className="absolute -bottom-6 -right-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl opacity-70"></div>
-              <div className="absolute -top-6 -left-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-secondary/30 to-primary/30 blur-3xl opacity-70"></div>
             </motion.div>
           </div>
         </section>
@@ -356,6 +361,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/3d-visualization.mp4",
                   technologies: ["Blender", "3ds Max", "RTX", "Unreal Engine", "WebGL"],
                   category: "3d-visualization",
+                  slug: "3d-visualization",
                 },
                 {
                   title: "Games & Media",
@@ -374,6 +380,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/games-media.mp4",
                   technologies: ["Unity", "Unreal Engine", "Blender", "Maya", "Substance"],
                   category: "games-media",
+                  slug: "games-media",
                 },
                 {
                   title: "VR Experiences",
@@ -392,6 +399,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/vr-experiences.mp4",
                   technologies: ["Unity", "Unreal Engine", "Oculus SDK", "SteamVR", "WebXR"],
                   category: "vr-experiences",
+                  slug: "vr-experiences",
                 },
                 {
                   title: "Automotive & Mechanical Design",
@@ -410,6 +418,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/automotive-mechanical-design.mp4",
                   technologies: ["SolidWorks", "AutoCAD", "Unreal Engine", "Unity", "Blender"],
                   category: "automotive-mechanical",
+                  slug: "automotive-mechanical",
                 },
                 {
                   title: "Virtual Production",
@@ -428,6 +437,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
                   technologies: ["Unreal Engine", "OBS", "NDI", "Motion Capture", "LED Walls"],
                   category: "virtual-production",
+                  slug: "virtual-production",
                 },
                 {
                   title: "Animation & Movies",
@@ -446,6 +456,7 @@ export default function LandingPage() {
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/animation-movies.mp4",
                   technologies: ["Blender", "Maya", "After Effects", "Cinema 4D", "Houdini"],
                   category: "animation-movies",
+                  slug: "animation-movies",
                 },
               ].map((service, i) => {
                 const serviceId = service.title
@@ -502,7 +513,7 @@ export default function LandingPage() {
                                   </div>
                                 ))}
                               </div>
-                              <div className="flex flex-col sm:flex-row gap-2">
+                              <div className="flex gap-2">
                                 <Link href={`/projects?category=${service.category}`}>
                                   <Button
                                     size="sm"
@@ -511,6 +522,15 @@ export default function LandingPage() {
                                   >
                                     View Projects
                                     <ArrowRight className="ml-2 size-2 md:size-2 lg:size-3" />
+                                  </Button>
+                                </Link>
+                                <Link href={`/services/${service.slug}`}>
+                                  <Button
+                                    size="sm"
+                                    variant="default"
+                                    className="rounded-full text-xs md:text-xs lg:text-sm"
+                                  >
+                                    Learn More
                                   </Button>
                                 </Link>
                               </div>
@@ -787,6 +807,21 @@ export default function LandingPage() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex justify-center mt-12"
+            >
+              <Link href="/testimonials">
+                <Button size="lg" variant="outline" className="rounded-full bg-transparent">
+                  View All Client Testimonials
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </section>
 
@@ -878,6 +913,51 @@ export default function LandingPage() {
                       +92 334 2229582
                     </a>
                   </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-8 border-t">
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="https://linkedin.com/company/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/linkedin-icon.png" alt="LinkedIn" width={48} height={48} className="size-12" />
+                  </a>
+                  <a
+                    href="https://instagram.com/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/instagram-icon.png" alt="Instagram" width={48} height={48} className="size-12" />
+                  </a>
+                  <a
+                    href="https://x.com/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/x-icon.png" alt="X (Twitter)" width={48} height={48} className="size-12" />
+                  </a>
+                  <a
+                    href="https://youtube.com/@inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/youtube-icon.png" alt="YouTube" width={48} height={48} className="size-12" />
+                  </a>
+                  <a
+                    href="https://facebook.com/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="/facebook-icon.png" alt="Facebook" width={48} height={48} className="size-12" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -1008,44 +1088,6 @@ export default function LandingPage() {
                 <span>INFERSTELLEN</span>
               </div>
               <p className="text-sm text-muted-foreground">Rendering Odd Things into Beautiful Chaos!</p>
-              <div className="flex flex-col gap-2">
-                <Link
-                  href="https://linkedin.com/company/inferstellen"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  LinkedIn
-                </Link>
-                <Link
-                  href="https://instagram.com/inferstellen"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  Instagram
-                </Link>
-                <Link
-                  href="https://x.com/inferstellen"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  X (Twitter)
-                </Link>
-                <Link
-                  href="https://youtube.com/@inferstellen"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  YouTube
-                </Link>
-                <Link
-                  href="mailto:contact@inferstellen.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  Email
-                </Link>
-                <Link
-                  href="https://wa.me/923342229582"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                >
-                  WhatsApp
-                </Link>
-              </div>
             </div>
             <div className="space-y-4">
               <h4 className="text-sm font-bold">Services</h4>

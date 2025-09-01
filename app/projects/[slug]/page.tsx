@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronLeft, ArrowRight, Calendar, ExternalLink, Play, Pause } from "lucide-react"
+import { ChevronLeft, ArrowRight, Calendar, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -19,7 +19,7 @@ const projectsData = [
     fullDescription:
       "This comprehensive architectural visualization suite represents the cutting edge of real-time rendering technology. Built entirely in Unreal Engine 5, the project showcases photorealistic architectural walkthroughs that allow clients to experience spaces before they're built. The system features dynamic lighting that changes throughout the day, interactive elements that respond to user input, and seamless transitions between interior and exterior spaces.",
     thumbnail: "/modern-architecture-visualization.png",
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/architectural-viz.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "3d-visualization",
     technologies: ["Unreal Engine 5", "Lumen", "Nanite", "Real-time Ray Tracing", "Architectural Visualization"],
     year: "2024",
@@ -50,7 +50,7 @@ const projectsData = [
     fullDescription:
       "A sophisticated product visualization platform that transforms how companies showcase their products to customers and stakeholders. This system features photorealistic RTX rendering, real-time material customization, and interactive product exploration. Users can examine products from every angle, customize materials and colors, and experience detailed technical specifications through immersive 3D interfaces.",
     thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-    video: "/project-videos/3d-product-showcase.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "3d-visualization",
     technologies: ["RTX", "3D Modeling", "Real-time Rendering", "Blender", "Material Editor"],
     year: "2023",
@@ -81,7 +81,7 @@ const projectsData = [
     fullDescription:
       "An advanced digital twin solution that creates a comprehensive virtual replica of an entire manufacturing facility. This system integrates real-time IoT data, machine learning algorithms, and 3D visualization to provide unprecedented insights into factory operations. The platform enables predictive maintenance, process optimization, and scenario planning through immersive 3D interfaces and data analytics dashboards.",
     thumbnail: "/smart-factory-digital-twin.png",
-    video: "/project-videos/smart-factory.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "automotive-mechanical",
     technologies: ["Digital Twin", "IoT Integration", "Machine Learning", "Real-time Analytics", "3D Visualization"],
     year: "2024",
@@ -112,7 +112,7 @@ const projectsData = [
     fullDescription:
       "An ambitious gaming project that pushes the boundaries of interactive entertainment. This experience combines cutting-edge physics simulation with stunning visual effects to create a truly immersive world. Players navigate through dynamically changing environments where every action has realistic consequences, from destructible environments to complex particle systems that respond to player behavior.",
     thumbnail: "/3d-animation-studio.png",
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/gaming-experience.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "games-media",
     technologies: ["Unity 2023", "HDRP", "Physics Simulation", "Procedural Generation", "AI Behavior Trees"],
     year: "2024",
@@ -143,7 +143,7 @@ const projectsData = [
     fullDescription:
       "A cutting-edge media production platform that revolutionizes content creation through real-time effects and interactive storytelling. This comprehensive system integrates advanced visual effects, motion graphics, and interactive elements to create engaging multimedia experiences. The platform supports live streaming, real-time compositing, and dynamic content generation for modern media production workflows.",
     thumbnail: "/interactive-museum-ar.png",
-    video: "/project-videos/media-production.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "games-media",
     technologies: ["Media Production", "Storytelling", "Real-time Effects", "Motion Graphics", "Live Streaming"],
     year: "2023",
@@ -174,7 +174,7 @@ const projectsData = [
     fullDescription:
       "A groundbreaking VR application designed for urban planners and city officials to visualize and interact with proposed city developments. This immersive experience allows users to walk through future cityscapes, examine building details, and understand the impact of urban planning decisions. The application features real-time data integration, showing traffic patterns, population density, and environmental impact in an intuitive 3D interface.",
     thumbnail: "/futuristic-city-skyline-in-vr.png",
-    video: "/project-videos/vr-city-planning.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "vr-experiences",
     technologies: ["Unity XR", "Oculus SDK", "SteamVR", "Real-time Data Integration", "Spatial Audio"],
     year: "2024",
@@ -205,7 +205,7 @@ const projectsData = [
     fullDescription:
       "An advanced VR training platform designed for industrial workers to safely learn complex equipment operation procedures. This immersive simulator features realistic haptic feedback, comprehensive safety protocols, and detailed equipment modeling. The system provides hands-on training experience without the risks and costs associated with real equipment, while tracking performance metrics and providing detailed feedback.",
     thumbnail: "/industrial-vr-training-simulation.png",
-    video: "/project-videos/industrial-training.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "vr-experiences",
     technologies: ["VR", "Training Simulation", "Haptic Feedback", "Safety", "Performance Analytics"],
     year: "2024",
@@ -236,7 +236,7 @@ const projectsData = [
     fullDescription:
       "A sophisticated automotive visualization platform that revolutionizes how car manufacturers present their vehicles to customers and stakeholders. This system features photorealistic material rendering, real-time configuration changes, and detailed technical visualizations. Users can explore every aspect of the vehicle, from paint finishes to interior materials, with unprecedented detail and accuracy.",
     thumbnail: "/3d-car-visualization-with-rtx-lighting.png",
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/project-videos/automotive-design.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "automotive-mechanical",
     technologies: ["Unreal Engine", "RTX Ray Tracing", "CAD Integration", "Material Editor", "Real-time Configurator"],
     year: "2024",
@@ -266,7 +266,7 @@ const projectsData = [
     fullDescription:
       "A comprehensive virtual production solution that brings Hollywood-level technology to content creators. This system combines real-time rendering with LED wall technology and precise camera tracking to create seamless integration between live-action footage and digital environments. The platform supports multiple camera angles, dynamic lighting, and real-time compositing for broadcast-quality output.",
     thumbnail: "/3d-animation-studio.png",
-    video: "/project-videoshttps://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_5KG3n1JnX0nD0m1xGcIotuMhJmHB/oMvfTFLUQQU97jTC86anUF/public/virtual-production.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "virtual-production",
     technologies: [
       "Unreal Engine",
@@ -303,7 +303,7 @@ const projectsData = [
     fullDescription:
       "A revolutionary virtual set system designed for live events and broadcasting that creates dynamic, interactive environments in real-time. This platform enables event producers to create stunning visual backdrops that respond to live performances, audience interaction, and real-time data feeds. The system supports multiple camera angles, dynamic lighting changes, and seamless integration with existing broadcast equipment.",
     thumbnail: "/futuristic-port-with-cranes-and-digital-interface.png",
-    video: "/project-videos/live-event-sets.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "virtual-production",
     technologies: [
       "Virtual Sets",
@@ -339,7 +339,7 @@ const projectsData = [
     fullDescription:
       "A showcase of cinematic animation excellence featuring complex character performances, advanced rigging systems, and photorealistic rendering. This project demonstrates the full pipeline from concept to final render, including character design, rigging, animation, lighting, and post-production. The result is a series of cinematic sequences that rival major studio productions in quality and emotional impact.",
     thumbnail: "/3d-animation-studio.png",
-    video: "/project-videos/cinematic-animation.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "animation-movies",
     technologies: ["Blender", "Maya", "Substance Painter", "Houdini", "DaVinci Resolve"],
     year: "2024",
@@ -370,7 +370,7 @@ const projectsData = [
     fullDescription:
       "An advanced medical training platform that provides immersive VR environments for surgical procedure training. This comprehensive system features realistic haptic feedback, detailed anatomical models, and comprehensive assessment tools. Medical professionals can practice complex procedures in a safe, controlled environment while receiving detailed performance feedback and certification tracking.",
     thumbnail: "/medical-vr-training.png",
-    video: "/project-videos/medical-training.mp4",
+    youtubeId: "sGYRvxZ4yEc",
     category: "animation-movies",
     technologies: ["Medical Simulation", "Animation", "Educational Content", "Haptic Feedback", "Assessment Tools"],
     year: "2023",
@@ -402,17 +402,12 @@ interface ProjectPageProps {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0)
 
   const project = projectsData.find((p) => p.slug === params.slug)
 
   if (!project) {
     notFound()
-  }
-
-  const toggleVideo = () => {
-    setIsVideoPlaying(!isVideoPlaying)
   }
 
   const nextGalleryImage = () => {
@@ -466,45 +461,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </div>
 
                 <div className="relative">
-                  <div className="aspect-video rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20 relative group">
-                    {!isVideoPlaying ? (
-                      <>
-                        <Image
-                          src={project.thumbnail || "/placeholder.svg"}
-                          width={800}
-                          height={450}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <button
-                          onClick={toggleVideo}
-                          className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
-                        >
-                          <div className="size-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors">
-                            <Play className="size-6 text-black ml-1" />
-                          </div>
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <video
-                          src={project.video}
-                          width={800}
-                          height={450}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full h-full object-cover"
-                        />
-                        <button
-                          onClick={toggleVideo}
-                          className="absolute top-4 right-4 size-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"
-                        >
-                          <Pause className="size-4 text-white" />
-                        </button>
-                      </>
-                    )}
+                  <div className="aspect-video rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${project.youtubeId}?rel=0&modestbranding=1`}
+                      title={project.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
                   </div>
                 </div>
               </div>
