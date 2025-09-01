@@ -4,10 +4,12 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronRight, Menu, X, ArrowRight } from "lucide-react"
+import { ChevronRight, Menu, X, ChevronLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Star } from "lucide-react"
 
-export default function AboutPage() {
+export default function TestimonialsPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -26,37 +28,69 @@ export default function AboutPage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const services = [
+  const testimonials = [
     {
-      title: "3D Visualization",
-      description:
-        "Photorealistic 3D rendering and visualization for architecture, products, and industrial applications.",
-      link: "/services#service-3d-visualization",
+      quote:
+        "INFERSTELLEN's digital twin solution revolutionized our creative workflow. The real-time visualization capabilities exceeded all our expectations.",
+      author: "Matthew E.",
+      role: "Creative Director, Elephrates",
+      rating: 5,
     },
     {
-      title: "Games & Media",
-      description: "Interactive gaming experiences and digital media production with cutting-edge technology.",
-      link: "/services#games-media",
+      quote:
+        "Working with INFERSTELLEN transformed our business operations. Their VR solutions provided exactly what we needed for our corporate presentations.",
+      author: "Mubashir R.",
+      role: "CEO, Hyper Baraaq",
+      rating: 5,
     },
     {
-      title: "VR Experiences",
-      description: "Immersive virtual reality environments for training, visualization, and interactive presentations.",
-      link: "/services#vr-experiences",
+      quote:
+        "The interactive 3D experiences they created for us were phenomenal. INFERSTELLEN delivered beyond our wildest expectations.",
+      author: "Iftekhar Y.",
+      role: "Product Manager, Elements Interactive",
+      rating: 5,
     },
     {
-      title: "Automotive & Mechanical Design",
-      description: "Advanced automotive and mechanical systems visualization with real-time rendering capabilities.",
-      link: "/services#service-automotive-mechanical-design",
+      quote:
+        "INFERSTELLEN's technical expertise in real-time production is unmatched. They brought our vision to life with incredible precision.",
+      author: "XuJi",
+      role: "Project Manager, Zixel Technologies",
+      rating: 5,
     },
     {
-      title: "Virtual Production",
-      description: "Live production workflows using Unreal Engine for broadcasts, events, and virtual productions.",
-      link: "/services#virtual-production",
+      quote:
+        "The digital twin implementation exceeded our requirements. INFERSTELLEN's innovative approach solved complex challenges seamlessly.",
+      author: "Uzair J.",
+      role: "Chief Executive, Tech Vision",
+      rating: 5,
     },
     {
-      title: "Animation & Movies",
-      description: "High-quality 3D animations, visual effects, and cinematic productions for various media.",
-      link: "/services#animation-movies",
+      quote:
+        "From concept to delivery, INFERSTELLEN demonstrated exceptional creativity and technical mastery. Their work truly renders chaos into beauty.",
+      author: "Bernhard H.",
+      role: "Technical Artist, Malao GmbH",
+      rating: 5,
+    },
+    {
+      quote:
+        "The team at INFERSTELLEN brought our automotive visualization project to life with stunning detail and precision. Their expertise in mechanical design visualization is unparalleled.",
+      author: "Sarah M.",
+      role: "Design Lead, AutoTech Solutions",
+      rating: 5,
+    },
+    {
+      quote:
+        "INFERSTELLEN's virtual production capabilities transformed our film production workflow. The real-time rendering and LED wall integration was flawless.",
+      author: "David L.",
+      role: "Director, Cinematic Studios",
+      rating: 5,
+    },
+    {
+      quote:
+        "Working with INFERSTELLEN on our animation project was incredible. Their attention to detail and creative vision exceeded our expectations.",
+      author: "Lisa K.",
+      role: "Producer, Animation House",
+      rating: 5,
     },
   ]
 
@@ -155,184 +189,71 @@ export default function AboutPage() {
       </header>
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section
-          className="w-full h-screen min-h-[60vh] flex items-center justify-center relative overflow-hidden"
-          style={{ aspectRatio: "16/10" }}
-        >
-          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative h-full flex flex-col justify-center">
+        <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
+          <div className="container px-4 md:px-6 relative mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-8"
+              className="text-center max-w-4xl mx-auto mb-16"
             >
-              <div className="relative rounded-xl overflow-hidden">
-                <img
-                  src="/inferstellen-banner.png"
-                  alt="Inferstellen Banner"
-                  className="w-full h-auto aspect-[2/1] object-cover"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center md:mt-[-2rem] lg:mt-0"
-            >
-              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto font-medium text-foreground">
-                Rendering Odd Things into Beautiful Chaos!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link href="/contact">
-                  <Button size="lg" className="rounded-full px-8 text-base">
-                    Book an Appointment
-                    <ArrowRight className="ml-2 size-4" />
-                  </Button>
-                </Link>
-                <Link href="/services">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
-                    Explore
-                  </Button>
-                </Link>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex justify-center"
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
               >
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="text-muted-foreground"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                  </svg>
-                </motion.div>
-              </motion.div>
+                <ChevronLeft className="size-4" />
+                Back to Home
+              </Link>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                Client Testimonials
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+                Hear what our clients have to say about their experience working with INFERSTELLEN and how we've helped
+                transform their visions into reality.
+              </p>
             </motion.div>
           </div>
         </section>
 
-        {/* About Content */}
-        <section className="w-full py-20 md:py-32">
-          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-            <div className="max-w-4xl mx-auto space-y-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-center space-y-6"
-              >
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Who We Are</h2>
-                <div className="text-lg md:text-xl text-muted-foreground space-y-4 max-w-3xl mx-auto">
-                  <p>
-                    We make stuff! Cool stuff! Weird stuff! At INFERSTELLEN, we're the studio that turns your wildest
-                    digital dreams into stunning reality.
-                  </p>
-                  <p>
-                    Need a game that'll make players forget what day it is? <strong>Done.</strong> A movie that keeps
-                    audiences on the edge of their seats? <strong>Absolutely.</strong> That promo that makes your
-                    product look like it's from the future? <strong>You bet!</strong>
-                  </p>
-                  <p>
-                    We specialize in the impossible: interactive 3D experiences, mind-bending VR worlds, digital twins
-                    that mirror reality so perfectly they're almost scary, and animations that make Pixar jealous.
-                    Whether it's for corporate conferences, industrial training, or just because you want something that
-                    makes people go "How did they DO that?", we've got you covered.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Services Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="space-y-8"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-center">What We Do</h3>
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {services.map((service, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                      className="group"
-                    >
-                      <Link href={service.link}>
-                        <div className="p-6 rounded-lg border border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md hover:border-primary/20 group-hover:scale-105">
-                          <h4 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
-                            {service.title}
-                          </h4>
-                          <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-                          <div className="mt-4 flex items-center text-sm text-primary group-hover:translate-x-1 transition-transform">
-                            Learn more <ArrowRight className="ml-1 size-3" />
-                          </div>
+        {/* Testimonials Grid */}
+        <section className="w-full py-20">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((testimonial, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                >
+                  <Card className="h-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md">
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <div className="flex mb-4">
+                        {Array(testimonial.rating)
+                          .fill(0)
+                          .map((_, j) => (
+                            <Star key={j} className="size-4 text-yellow-500 fill-yellow-500" />
+                          ))}
+                      </div>
+                      <p className="text-lg mb-6 flex-grow">{testimonial.quote}</p>
+                      <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border/40">
+                        <div className="size-10 rounded-full bg-muted flex items-center justify-center text-foreground font-medium">
+                          {testimonial.author.charAt(0)}
                         </div>
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Philosophy Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-center space-y-6"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">Our Philosophy</h3>
-                <div className="text-lg md:text-xl text-muted-foreground space-y-4 max-w-3xl mx-auto">
-                  <p>
-                    We work primarily in Unreal Engine, Unity, and Blender, wielding RTX rendering like digital wizards
-                    and integrating AI because, well, why not make things even more interesting? From port management
-                    systems that track every crane and truck in real-time to VR experiences that transport you to
-                    futuristic cities, we build the impossible.
-                  </p>
-                  <p>
-                    Our team thrives on challenges that make other studios run away screaming. Interactive media? Check.
-                    Real-time production? Double check. Digital twins that sync with live data and make executives weep
-                    tears of joy? Triple check.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Quote Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-center py-12"
-              >
-                <blockquote className="text-xl md:text-2xl font-medium italic text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                  "Led by the uncertain, doing the impossible for the unpredictable! We've done so much with so little
-                  for so long, we're now qualified to do anything with nothing!"
-                </blockquote>
-              </motion.div>
+                        <div>
+                          <p className="font-medium">{testimonial.author}</p>
+                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
@@ -350,8 +271,8 @@ export default function AboutPage() {
                 Let's Build Something Extraordinary Together!
               </h2>
               <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
-                Let's collaborate to create extraordinary interactive experiences that push the boundaries of what's
-                possible.
+                Ready to join our satisfied clients? Let's collaborate to create extraordinary interactive experiences
+                that push the boundaries of what's possible.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Link href="/contact">
@@ -371,75 +292,6 @@ export default function AboutPage() {
                 </Link>
               </div>
             </motion.div>
-          </div>
-        </section>
-
-        <section className="w-full py-16 border-t bg-muted/20">
-          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-            <div className="grid gap-8 md:grid-cols-2 max-w-2xl mx-auto">
-              <div className="space-y-4">
-                <h4 className="text-lg font-bold">Resources</h4>
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/case-studies"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Case Studies
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/documentation"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Documentation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Support
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-lg font-bold">Company</h4>
-                <ul className="space-y-3">
-                  <li>
-                    <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
-                      FAQs
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Careers
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/privacy-policy"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/terms-of-service"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Terms of Service
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </section>
       </main>
