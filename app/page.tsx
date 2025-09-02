@@ -226,22 +226,19 @@ export default function HomePage() {
         )}
       </header>
       <main className="flex-1">
-        <section
-          className="w-full h-screen min-h-[60vh] flex items-center justify-center relative overflow-hidden"
-          style={{ aspectRatio: "16/10" }}
-        >
-          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative h-full flex flex-col justify-center">
+        <section className="w-full min-h-screen flex items-center justify-center relative overflow-hidden py-8 md:py-12">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative flex flex-col justify-center items-center min-h-[80vh]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-8"
+              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-4 md:mb-8 flex-shrink-0"
             >
               <div className="relative rounded-xl overflow-hidden">
                 <img
                   src="/inferstellen-banner.png"
                   alt="Inferstellen Banner"
-                  className="w-full h-auto aspect-[2/1] object-cover"
+                  className="w-full h-auto aspect-[2/1] object-cover max-h-[40vh] md:max-h-[50vh]"
                 />
               </div>
             </motion.div>
@@ -250,20 +247,24 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center md:mt-[-2rem] lg:mt-0"
+              className="text-center flex-shrink-0"
             >
-              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto font-medium text-foreground">
+              <p className="text-base md:text-lg lg:text-xl mb-4 md:mb-6 max-w-2xl mx-auto font-medium text-foreground">
                 Rendering Odd Things into Beautiful Chaos!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-4 md:mb-8">
                 <Link href="/contact">
-                  <Button size="lg" className="rounded-full px-8 text-base">
+                  <Button size="lg" className="rounded-full px-6 md:px-8 text-sm md:text-base">
                     Book an Appointment
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
                 </Link>
                 <Link href="/services">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-6 md:px-8 text-sm md:text-base bg-transparent"
+                  >
                     Explore
                   </Button>
                 </Link>
@@ -281,7 +282,7 @@ export default function HomePage() {
                   className="text-muted-foreground"
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 md:w-6 md:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -421,7 +422,7 @@ export default function HomePage() {
                   slug: "automotive-mechanical",
                 },
                 {
-                  title: "Virtual Production",
+                  title: "Virtual Production & VFX",
                   description:
                     "Live production solutions for events, broadcasts, and presentations using real-time rendering, virtual sets, and LED wall technology.",
                   features: [

@@ -59,7 +59,7 @@ export default function ProjectsPage() {
       link: "/services#service-automotive-mechanical-design",
     },
     {
-      title: "Virtual Production",
+      title: "Virtual Production & VFX",
       description: "Live production workflows using Unreal Engine for broadcasts, events, and virtual productions.",
       link: "/services#virtual-production",
     },
@@ -212,7 +212,7 @@ export default function ProjectsPage() {
     { id: "games-media", label: "Games & Media" },
     { id: "vr-experiences", label: "VR Experiences" },
     { id: "automotive-mechanical", label: "Automotive & Mechanical" },
-    { id: "virtual-production", label: "Virtual Production" },
+    { id: "virtual-production", label: "Virtual Production & VFX" },
     { id: "animation-movies", label: "Animation & Movies" },
   ]
 
@@ -509,7 +509,7 @@ export default function ProjectsPage() {
                     href="/services#virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Virtual Production
+                    Virtual Production & VFX
                   </Link>
                 </li>
                 <li>

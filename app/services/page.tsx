@@ -113,7 +113,7 @@ export default function ServicesPage() {
       category: "automotive-mechanical",
     },
     {
-      title: "Virtual Production",
+      title: "Virtual Production & VFX",
       description:
         "Live production solutions for events, broadcasts, and presentations using real-time rendering, virtual sets, and LED wall technology.",
       features: [
