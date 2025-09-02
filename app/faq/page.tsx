@@ -343,75 +343,6 @@ export default function FAQPage() {
             </motion.div>
           </div>
         </section>
-
-        <section className="w-full py-16 bg-muted/30">
-          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-            <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Resources</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/case-studies"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Case Studies
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/documentation"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Documentation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/support" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Support
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Company</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Careers
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/privacy-policy"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/terms-of-service"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Terms of Service
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
@@ -435,7 +366,7 @@ export default function FAQPage() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="/services#service-3d-visualization"
+                    href="/services/3d-visualization"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     3D Visualization
@@ -443,7 +374,7 @@ export default function FAQPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#games-media"
+                    href="/services/games-media"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Games & Media
@@ -451,7 +382,7 @@ export default function FAQPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#vr-experiences"
+                    href="/services/vr-experiences"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     VR Experiences
@@ -459,7 +390,7 @@ export default function FAQPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#service-automotive-mechanical-design"
+                    href="/services/automotive-mechanical"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Automotive & Mechanical Design
@@ -467,15 +398,15 @@ export default function FAQPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#virtual-production"
+                    href="/services/virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Virtual Production
+                    Virtual Production & VFX
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services#animation-movies"
+                    href="/services/animation-movies"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Animation & Movies
@@ -499,6 +430,27 @@ export default function FAQPage() {
                 <li>
                   <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
                     FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms-of-service"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Terms of Service
                   </Link>
                 </li>
               </ul>
