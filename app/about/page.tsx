@@ -374,140 +374,6 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
-
-        <section className="w-full py-16 border-t bg-muted/20">
-          <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16 mx-auto max-w-7xl">
-            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 font-bold">
-                  <Image
-                    src="/inferstellen-logo.png"
-                    alt="INFERSTELLEN Logo"
-                    width={32}
-                    height={32}
-                    className="size-8 rounded-lg object-cover"
-                  />
-                  <span>INFERSTELLEN</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Rendering Odd Things into Beautiful Chaos!</p>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold">Services</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link
-                      href="/services/3d-visualization"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      3D Visualization
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/games-media"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Games & Media
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/vr-experiences"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      VR Experiences
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/automotive-mechanical"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Automotive & Mechanical Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/virtual-production"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Virtual Production & VFX
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/animation-movies"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Animation & Movies
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold">Company</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
-                      FAQ
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold">Connect</h4>
-                <div className="flex flex-col gap-2">
-                  <Link
-                    href="https://linkedin.com/company/inferstellen"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    LinkedIn
-                  </Link>
-                  <Link
-                    href="https://instagram.com/inferstellen"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    Instagram
-                  </Link>
-                  <Link
-                    href="https://x.com/inferstellen"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    X (Twitter)
-                  </Link>
-                  <Link
-                    href="https://youtube.com/@inferstellen"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    YouTube
-                  </Link>
-                  <Link
-                    href="mailto:contact@inferstellen.com"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    Email
-                  </Link>
-                  <Link
-                    href="https://wa.me/923342229582"
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    WhatsApp
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
@@ -595,6 +461,27 @@ export default function AboutPage() {
                 <li>
                   <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
                     FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms-of-service"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Terms of Service
                   </Link>
                 </li>
               </ul>
