@@ -1094,13 +1094,8 @@ export default function HomePage() {
               <h4 className="text-sm font-bold">Services</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/projects" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Projects
-                  </Link>
-                </li>
-                <li>
                   <Link
-                    href="/services#service-3d-visualization"
+                    href="/services/3d-visualization"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     3D Visualization
@@ -1108,7 +1103,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#games-media"
+                    href="/services/games-media"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Games & Media
@@ -1116,7 +1111,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#vr-experiences"
+                    href="/services/vr-experiences"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     VR Experiences
@@ -1124,7 +1119,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#service-automotive-mechanical-design"
+                    href="/services/automotive-mechanical"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Automotive & Mechanical Design
@@ -1132,15 +1127,15 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#virtual-production"
+                    href="/services/virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Virtual Production
+                    Virtual Production & VFX
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services#animation-movies"
+                    href="/services/animation-movies"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Animation & Movies
