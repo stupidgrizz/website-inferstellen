@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge"
 
 export default function VirtualProductionPage() {
   const service = {
-    title: "Virtual Production",
+    title: "Virtual Production & VFX",
     shortDescription:
       "Live production solutions for events, broadcasts, and presentations using real-time rendering, virtual sets, and LED wall technology.",
     fullDescription:
@@ -54,7 +54,7 @@ export default function VirtualProductionPage() {
 
               <div className="aspect-[4/1] rounded-xl overflow-hidden shadow-lg border border-border/40 bg-gradient-to-r from-background to-muted/20 mb-12">
                 <img
-                  src="/virtual-production-banner-with-led-walls-and-came.png"
+                  src="/virtual-production-banner.png"
                   alt="Virtual Production Service Banner"
                   className="w-full h-full object-cover"
                 />

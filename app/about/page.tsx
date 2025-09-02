@@ -31,32 +31,32 @@ export default function AboutPage() {
       title: "3D Visualization",
       description:
         "Photorealistic 3D rendering and visualization for architecture, products, and industrial applications.",
-      link: "/services#service-3d-visualization",
+      link: "/services/3d-visualization",
     },
     {
       title: "Games & Media",
       description: "Interactive gaming experiences and digital media production with cutting-edge technology.",
-      link: "/services#games-media",
+      link: "/services/games-media",
     },
     {
       title: "VR Experiences",
       description: "Immersive virtual reality environments for training, visualization, and interactive presentations.",
-      link: "/services#vr-experiences",
+      link: "/services/vr-experiences",
     },
     {
       title: "Automotive & Mechanical Design",
       description: "Advanced automotive and mechanical systems visualization with real-time rendering capabilities.",
-      link: "/services#service-automotive-mechanical-design",
+      link: "/services/automotive-mechanical",
     },
     {
-      title: "Virtual Production",
+      title: "Virtual Production & VFX",
       description: "Live production workflows using Unreal Engine for broadcasts, events, and virtual productions.",
-      link: "/services#virtual-production",
+      link: "/services/virtual-production",
     },
     {
       title: "Animation & Movies",
       description: "High-quality 3D animations, visual effects, and cinematic productions for various media.",
-      link: "/services#animation-movies",
+      link: "/services/animation-movies",
     },
   ]
 
@@ -156,22 +156,19 @@ export default function AboutPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section
-          className="w-full h-screen min-h-[60vh] flex items-center justify-center relative overflow-hidden"
-          style={{ aspectRatio: "16/10" }}
-        >
-          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative h-full flex flex-col justify-center">
+        <section className="w-full min-h-screen flex items-center justify-center relative overflow-hidden py-8 md:py-12">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6 relative flex flex-col justify-center items-center min-h-[80vh]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-8"
+              className="relative mx-auto max-w-5xl lg:max-w-7xl mb-4 md:mb-8 flex-shrink-0"
             >
               <div className="relative rounded-xl overflow-hidden">
                 <img
                   src="/inferstellen-banner.png"
                   alt="Inferstellen Banner"
-                  className="w-full h-auto aspect-[2/1] object-cover"
+                  className="w-full h-auto aspect-[2/1] object-cover max-h-[40vh] md:max-h-[50vh]"
                 />
               </div>
             </motion.div>
@@ -180,20 +177,24 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center md:mt-[-2rem] lg:mt-0"
+              className="text-center flex-shrink-0"
             >
-              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto font-medium text-foreground">
+              <p className="text-base md:text-lg lg:text-xl mb-4 md:mb-6 max-w-2xl mx-auto font-medium text-foreground">
                 Rendering Odd Things into Beautiful Chaos!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-4 md:mb-8">
                 <Link href="/contact">
-                  <Button size="lg" className="rounded-full px-8 text-base">
+                  <Button size="lg" className="rounded-full px-6 md:px-8 text-sm md:text-base">
                     Book an Appointment
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
                 </Link>
                 <Link href="/services">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 text-base bg-transparent">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-6 md:px-8 text-sm md:text-base bg-transparent"
+                  >
                     Explore
                   </Button>
                 </Link>
@@ -211,7 +212,7 @@ export default function AboutPage() {
                   className="text-muted-foreground"
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 md:w-6 md:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -375,69 +376,134 @@ export default function AboutPage() {
         </section>
 
         <section className="w-full py-16 border-t bg-muted/20">
-          <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-            <div className="grid gap-8 md:grid-cols-2 max-w-2xl mx-auto">
+          <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16 mx-auto max-w-7xl">
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
               <div className="space-y-4">
-                <h4 className="text-lg font-bold">Resources</h4>
-                <ul className="space-y-3">
+                <div className="flex items-center gap-2 font-bold">
+                  <Image
+                    src="/inferstellen-logo.png"
+                    alt="INFERSTELLEN Logo"
+                    width={32}
+                    height={32}
+                    className="size-8 rounded-lg object-cover"
+                  />
+                  <span>INFERSTELLEN</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Rendering Odd Things into Beautiful Chaos!</p>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-sm font-bold">Services</h4>
+                <ul className="space-y-2 text-sm">
                   <li>
                     <Link
-                      href="/case-studies"
+                      href="/services/3d-visualization"
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Case Studies
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Blog
+                      3D Visualization
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/documentation"
+                      href="/services/games-media"
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Documentation
+                      Games & Media
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Support
+                    <Link
+                      href="/services/vr-experiences"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      VR Experiences
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/automotive-mechanical"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      Automotive & Mechanical Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/virtual-production"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      Virtual Production & VFX
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/animation-movies"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      Animation & Movies
                     </Link>
                   </li>
                 </ul>
               </div>
               <div className="space-y-4">
-                <h4 className="text-lg font-bold">Company</h4>
-                <ul className="space-y-3">
+                <h4 className="text-sm font-bold">Company</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                      Contact
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
-                      FAQs
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
-                      Careers
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/privacy-policy"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/terms-of-service"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Terms of Service
+                      FAQ
                     </Link>
                   </li>
                 </ul>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-sm font-bold">Connect</h4>
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href="https://linkedin.com/company/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    LinkedIn
+                  </Link>
+                  <Link
+                    href="https://instagram.com/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    Instagram
+                  </Link>
+                  <Link
+                    href="https://x.com/inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    X (Twitter)
+                  </Link>
+                  <Link
+                    href="https://youtube.com/@inferstellen"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    YouTube
+                  </Link>
+                  <Link
+                    href="mailto:contact@inferstellen.com"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    Email
+                  </Link>
+                  <Link
+                    href="https://wa.me/923342229582"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    WhatsApp
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -465,7 +531,7 @@ export default function AboutPage() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="/services#service-3d-visualization"
+                    href="/services/3d-visualization"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     3D Visualization
@@ -473,7 +539,7 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#games-media"
+                    href="/services/games-media"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Games & Media
@@ -481,7 +547,7 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#vr-experiences"
+                    href="/services/vr-experiences"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     VR Experiences
@@ -489,7 +555,7 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#service-automotive-mechanical-design"
+                    href="/services/automotive-mechanical"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Automotive & Mechanical Design
@@ -497,15 +563,15 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <Link
-                    href="/services#virtual-production"
+                    href="/services/virtual-production"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Virtual Production
+                    Virtual Production & VFX
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services#animation-movies"
+                    href="/services/animation-movies"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Animation & Movies
